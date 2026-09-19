@@ -1,31 +1,56 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Launcher.Core.Tests.vbproj
+     製品と同じ .NET Framework 4.6.1 上でコア機能の回帰テストを構築します。 -->
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.props" Condition="Exists('$(MSBuildToolsPath)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{56CD3EAE-43EC-48FF-A494-701D76BAF9E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <RootNamespace>Launcher.Core.Tests</RootNamespace>
     <AssemblyName>Launcher.Core.Tests</AssemblyName>
-    <IsTestProject>true</IsTestProject>
-    <IsPackable>false</IsPackable>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <OptionExplicit>On</OptionExplicit>
     <OptionStrict>On</OptionStrict>
     <OptionInfer>On</OptionInfer>
     <LangVersion>15.5</LangVersion>
+    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <OutputPath>bin\Debug\</OutputPath>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x64\Release\</OutputPath>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.10.1" />
-    <PackageReference Include="MSTest.TestAdapter" Version="4.4.1" />
-    <PackageReference Include="MSTest.TestFramework" Version="4.4.1" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Launcher.Core\Launcher.Core.vbproj" />
+    <Compile Include="LauncherConfigurationLoaderTests.vb" />
+    <Compile Include="LauncherProductTests.vb" />
+    <Compile Include="LauncherViewModelTests.vb" />
+    <Compile Include="ProgramLauncherTests.vb" />
   </ItemGroup>
+  <ItemGroup>
+    <!-- 4.6.1 を直接サポートする最終世代のテスト資材を固定します。 -->
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net461" Version="1.0.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Launcher.Core\Launcher.Core.vbproj">
+      <Project>{18466C48-D75E-4D8A-982D-51BC889877C7}</Project>
+      <Name>Launcher.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

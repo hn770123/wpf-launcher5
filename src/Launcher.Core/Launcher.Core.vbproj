@@ -1,24 +1,60 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Launcher.Core.vbproj
+     .NET SDK に依存せず、.NET Framework 4.6.1 の MSBuild でコア機能を構築します。 -->
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.props" Condition="Exists('$(MSBuildToolsPath)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{18466C48-D75E-4D8A-982D-51BC889877C7}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <RootNamespace>Launcher.Core</RootNamespace>
     <AssemblyName>Launcher.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <OptionExplicit>On</OptionExplicit>
     <OptionStrict>On</OptionStrict>
     <OptionInfer>On</OptionInfer>
     <LangVersion>15.5</LangVersion>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <OutputPath>bin\Debug\</OutputPath>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x64\Release\</OutputPath>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
-
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Targeting Pack がない保守端末でも、4.6.1 の参照アセンブリだけを復元してビルドできるようにします。 -->
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net461" Version="1.0.3" PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- 従来形式では既定のファイル収集がないため、保守対象を明示します。 -->
+    <Compile Include="LauncherProduct.vb" />
+    <Compile Include="Models\LauncherConfiguration.vb" />
+    <Compile Include="Services\ConfigurationException.vb" />
+    <Compile Include="Services\ConfigurationLoadResult.vb" />
+    <Compile Include="Services\ConfigurationPathResolver.vb" />
+    <Compile Include="Services\FileLogger.vb" />
+    <Compile Include="Services\LauncherConfigurationLoader.vb" />
+    <Compile Include="Services\ProgramLauncher.vb" />
+    <Compile Include="ViewModels\LauncherViewModel.vb" />
+  </ItemGroup>
   <ItemGroup>
     <!-- 配布先でスキーマを差し替えられないよう、検証用 XSD をアセンブリへ埋め込みます。 -->
-    <EmbeddedResource Include="..\..\schemas\launcher-config.xsd" Link="Schemas\launcher-config.xsd" />
+    <EmbeddedResource Include="..\..\schemas\launcher-config.xsd">
+      <Link>Schemas\launcher-config.xsd</Link>
+    </EmbeddedResource>
   </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

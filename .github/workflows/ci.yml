@@ -1,5 +1,5 @@
 # ci.yml
-# .NET Framework 4.6.2 の復元、ビルド、テスト、配布物作成を Windows 上で再現します。
+# .NET Framework 4.6.1 の復元、ビルド、テスト、配布物作成を Windows 上で再現します。
 name: CI
 
 on:
@@ -54,12 +54,6 @@ jobs:
             throw "MSBuild を含む Visual Studio が見つかりません。"
           }
 
-          $targetingPack = & $vswhere -latest -products * `
-            -requires Microsoft.Net.Component.4.6.2.TargetingPack -format json | ConvertFrom-Json
-          if (-not $targetingPack) {
-            throw ".NET Framework 4.6.2 Targeting Pack が見つかりません。"
-          }
-
           $msbuild = & $vswhere -latest -products * -requires Microsoft.Component.MSBuild `
             -find 'MSBuild\**\Bin\MSBuild.exe' | Select-Object -First 1
           if (-not $msbuild) {
@@ -68,7 +62,6 @@ jobs:
 
           "MSBUILD_PATH=$msbuild" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           & $msbuild -version
-          dotnet --info
 
       - name: Release x64 を復元してビルド
         run: |
@@ -89,7 +82,7 @@ jobs:
             throw "vstest.console.exe が見つかりません。"
           }
 
-          $testAssembly = 'tests\Launcher.Core.Tests\bin\x64\Release\net462\Launcher.Core.Tests.dll'
+          $testAssembly = 'tests\Launcher.Core.Tests\bin\x64\Release\Launcher.Core.Tests.dll'
           if (-not (Test-Path -LiteralPath $testAssembly)) {
             throw "テスト DLL が見つかりません: $testAssembly"
           }
@@ -103,7 +96,7 @@ jobs:
 
       - name: アプリ配布用 ZIP を作成
         run: |
-          $output = 'src\Launcher.App\bin\x64\Release\net462'
+          $output = 'src\Launcher.App\bin\x64\Release'
           if (-not (Test-Path -LiteralPath "$output\Launcher.App.exe")) {
             throw "配布対象の Launcher.App.exe が見つかりません。"
           }

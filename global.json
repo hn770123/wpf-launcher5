@@ -1,8 +1,0 @@
-{
-  // .NET Framework WPF と互換性のある .NET 8 SDK の最新 feature band を使用します。
-  "sdk": {
-    "version": "8.0.100",
-    "rollForward": "latestFeature",
-    "allowPrerelease": false
-  }
-}

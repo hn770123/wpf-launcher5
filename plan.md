@@ -10,7 +10,7 @@
 
 ### 2.1 確定要件
 
-- クライアントは .NET Framework 4.6.2、VB.NET、WPF（XAML）で実装する。
+- クライアントは .NET Framework 4.6.1、VB.NET、WPF（XAML）で実装する。
 - ランチャー設定は XML ファイルに保存する。
 - 画面はカテゴリー一覧と、選択カテゴリーに属するボタン一覧の2階層とする。
 - 各ボタンには任意の画像を表示できる。
@@ -87,7 +87,7 @@
 └─ plan.md
 ```
 
-`Launcher.Core` は .NET Framework 4.6.2 のクラスライブラリとし、UI を起動せず Linux 上でも静的確認しやすい構造にする。ただし正式なビルドとテスト結果は Windows runner を正とする。
+`Launcher.Core` は .NET Framework 4.6.1 のクラスライブラリとし、UI を起動せず Linux 上でも静的確認しやすい構造にする。ただし正式なビルドとテスト結果は Windows runner を正とする。
 
 ## 5. アーキテクチャ方針
 
@@ -141,7 +141,7 @@ XSD と読み込み処理では、必須属性、ID の重複、順序値、空�
 
 1. `AGENTS.md`、`draft.md`、本計画を読む。
 2. 作業開始時に `git status --short --branch` を確認し、利用者の未コミット変更を上書きしない。
-3. Microsoft Learn で .NET Framework 4.6.2 Developer Pack、WPF、MSBuild、.NET 10 の Razor Pages / Minimal API の最新手順を確認する。
+3. Microsoft Learn で .NET Framework 4.6.1 Developer Pack、WPF、MSBuild、.NET 10 の Razor Pages / Minimal API の最新手順を確認する。
 4. GitHub Docs と各 Action の公式リポジトリで、Windows runner の利用可能なイメージ、権限、`actions/checkout`、`actions/upload-artifact`、`actions/setup-dotnet` の現行メジャーバージョンと breaking changes を確認する。
 5. 確認日、採用バージョン、参照 URL を `docs/development.md` に記録する。`windows-latest` の内容に暗黙依存せず、必要な Visual Studio/MSBuild コンポーネントをログへ出す。
 
@@ -150,7 +150,7 @@ XSD と読み込み処理では、必須属性、ID の重複、順序値、空�
 ### ステップ1: ソリューションと最小起動アプリ
 
 1. `Launcher.sln`、VB.NET の `Launcher.App` と `Launcher.Core`、テストプロジェクトを作る。
-2. 全プロジェクトのターゲットを .NET Framework 4.6.2 に統一する。
+2. 全プロジェクトのターゲットを .NET Framework 4.6.1 に統一する。
 3. 最小の `App.xaml` と `MainWindow` を作り、サンプルデータでウィンドウを表示する。
 4. 日本語のモジュールヘッダーコメントと関数ヘッダーコメントを追加し、複雑な判断には細かな日本語コメントを付ける。
 5. Release/x64 と Debug/Any CPU のビルドを確認する。
@@ -292,7 +292,7 @@ powershell -File tools/verify-artifacts.ps1 -Path artifacts/<run-id>
 
 | リスク | 対策 |
 |---|---|
-| .NET Framework 4.6.2 が古く runner 更新の影響を受ける | Developer Pack と MSBuild の利用可否を開始時と定期的に確認し、環境情報と binlog を保存する |
+| .NET Framework 4.6.1 が古く runner 更新の影響を受ける | Developer Pack と MSBuild の利用可否を開始時と定期的に確認し、環境情報と binlog を保存する |
 | `windows-latest` の更新で結果が変わる | 必要に応じて特定 Windows イメージを明示し、移行 PR で更新する |
 | hosted runner の画面セッション差により撮影が不安定 | 有限タイムアウト、ウィンドウ特定、診断ログ、再現可能なサンプル設定を用意する |
 | 外部プログラム起動が任意コード実行経路になる | 信頼されたローカル設定だけを扱い、シェルを介さず、将来のリモート設定には署名検証を必須とする |

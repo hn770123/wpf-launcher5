@@ -8,12 +8,12 @@
 
 ### 2.1 フェーズ1
 
-- `Launcher.App` は VB.NET の SDK 形式 WPF プロジェクトとし、`TargetFramework` を `net462`、`UseWPF` を `true` にする。
-- `Launcher.Core` と `Launcher.Core.Tests` も SDK 形式とし、すべて `net462` に統一する。
+- `Launcher.App` は VB.NET の従来形式 WPF プロジェクトとし、`TargetFrameworkVersion` を `v4.6.1` にする。
+- `Launcher.Core` と `Launcher.Core.Tests` も従来形式とし、すべて .NET Framework 4.6.1 に統一する。
 - テストには MSTest と `Microsoft.NET.Test.Sdk` を使用する。テストの実行基盤は Visual Studio に含まれる VSTest とし、テスト結果を TRX 形式で保存する。
-- .NET Framework 4.6.2 の参照アセンブリが必要なため、CI は Windows x64 runner 上の Visual Studio 2022 と `Microsoft.Net.Component.4.6.2.TargetingPack` を使用する。
+- .NET Framework 4.6.1 の参照アセンブリには Microsoft の `Microsoft.NETFramework.ReferenceAssemblies.net461` 1.0.3 を使用し、CI は Windows x64 runner 上の Visual Studio 2022 と MSBuild を使用する。
 
-SDK 形式を選ぶ理由は、プロジェクトファイルを簡潔に保ち、`PackageReference` と `/restore` を標準化するためである。一方、WPF と .NET Framework 4.6.2 は Windows 固有なので、正式な build/test 結果は Windows runner の結果を正とする。
+保守環境で .NET SDK を必要としないよう、プロジェクトは Visual Studio の MSBuild で扱える従来形式とする。依存パッケージの復元には `PackageReference` と `/restore` を使用する。参照アセンブリパッケージはコンパイル時だけ使用し、配布物には含めない。WPF と .NET Framework 4.6.1 は Windows 固有なので、正式な build/test 結果は Windows runner の結果を正とする。
 
 ### 2.2 フェーズ2
 
@@ -29,7 +29,7 @@ CI では `windows-latest` を使用せず、次を明示する。
 runs-on: windows-2022
 ```
 
-確認時点で `windows-latest` は Windows Server 2025 / Visual Studio 2026 を指す。一方、公式の Windows Server 2022 イメージには Visual Studio Enterprise 2022、MSBuild、NuGet build tools、`.NET Framework 4.6.2 Targeting Pack` が掲載されている。このため、古いターゲットとの互換性を優先して `windows-2022` を採用する。
+確認時点で `windows-latest` は Windows Server 2025 / Visual Studio 2026 を指す。一方、公式の Windows Server 2022 イメージには Visual Studio Enterprise 2022、MSBuild、NuGet build tools が掲載されている。このため、ビルド環境を安定させるために `windows-2022` を採用する。4.6.1 Targeting Pack は runner の標準搭載を前提にせず、Microsoft の参照アセンブリパッケージから復元する。
 
 runner イメージは継続的に更新されるため、ジョブの冒頭で次の情報をログへ出す。これにより、イメージ名だけに暗黙依存せず、障害発生時に実際のツールチェーンを特定できる。
 
@@ -40,15 +40,12 @@ Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion, OsBuildNumb
 
 $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
 & $vswhere -latest -products * -requires Microsoft.Component.MSBuild -format json
-& $vswhere -latest -products * -requires Microsoft.Net.Component.4.6.2.TargetingPack -format json
-
 $msbuild = & $vswhere -latest -products * -requires Microsoft.Component.MSBuild `
   -find 'MSBuild\**\Bin\MSBuild.exe' | Select-Object -First 1
 & $msbuild -version
-dotnet --info
 ```
 
-`.NET Framework 4.6.2 Targeting Pack` の検索結果または MSBuild が空の場合は、別バージョンでの暗黙のビルドを行わずジョブを失敗させる。ローカル Windows 環境には Microsoft Learn の案内に従って .NET Framework 4.6.2 Developer Pack を導入する。Developer Pack は対象バージョン向けの Targeting Pack、SDK、および IntelliSense 用ファイルを提供する。
+MSBuild が空の場合はジョブを失敗させる。4.6.1 の参照アセンブリは `/restore` により NuGet から取得するため、ローカル Windows 環境にも .NET SDK や 4.6.1 Developer Pack の追加導入を必須としない。オフラインで保守する場合は、復元済みパッケージを社内 NuGet ソースへ保存する。
 
 ### 3.2 restore と build
 
@@ -75,7 +72,7 @@ $vstest = & $vswhere -latest -products * `
   -find 'Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe' |
   Select-Object -First 1
 
-& $vstest tests\Launcher.Core.Tests\bin\x64\Release\net462\Launcher.Core.Tests.dll `
+& $vstest tests\Launcher.Core.Tests\bin\x64\Release\Launcher.Core.Tests.dll `
   /Platform:x64 `
   /Logger:"trx;LogFileName=Launcher.Core.Tests.trx" `
   /ResultsDirectory:artifacts\test-results
@@ -123,6 +120,7 @@ permissions:
 ### Microsoft
 
 - [.NET Framework Developer Pack または再頒布可能パッケージのインストール](https://learn.microsoft.com/en-us/dotnet/framework/install/guide-for-developers)
+- [Microsoft.NETFramework.ReferenceAssemblies.net461 (NuGet)](https://www.nuget.org/packages/Microsoft.NETFramework.ReferenceAssemblies.net461/)
 - [WPF の概要](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/?view=netframeworkdesktop-4.8)
 - [MSBuild コマンドライン リファレンス](https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2022)
 - [ASP.NET Core Razor Pages のアーキテクチャと概念 (.NET 10)](https://learn.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-10.0)
@@ -142,5 +140,5 @@ permissions:
 
 - runner イメージまたは Action を更新する PR では、公式のリリースノートと breaking changes を再確認する。
 - Action の SHA は Dependabot 等で更新しても、対応するタグ、Node.js runtime、最低 runner バージョンをレビューする。
-- `windows-2022` の廃止告知が出た場合は、移行先に `.NET Framework 4.6.2 Targeting Pack` があることを確認し、同じ PR で環境ログと build/test の成功を証明する。
+- `windows-2022` の廃止告知が出た場合は、移行先で Visual Studio の MSBuild と 4.6.1 参照アセンブリパッケージによる build/test が成功することを同じ PR で証明する。
 - .NET 10 の feature band を固定する必要が生じた場合は `global.json` を追加し、`setup-dotnet` の指定と同期させる。

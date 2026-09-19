@@ -1,7 +1,7 @@
 ## WPF によるプログラムランチャー
 
 ## 技術スタック
-- .net frameworks 4.6.2
+- .NET Framework 4.6.1
 - VB.net
 - WPF(xaml)
 - xml設定ファイル
