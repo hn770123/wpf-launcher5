@@ -1,0 +1,12 @@
+# Visual Studio / MSBuild のローカル生成物
+[Bb]in/
+[Oo]bj/
+.vs/
+
+# テスト実行時の出力
+TestResults/
+artifacts/
+
+# 利用者固有の Visual Studio 設定
+*.user
+*.suo
