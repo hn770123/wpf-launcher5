@@ -83,6 +83,14 @@ $vstest = & $vswhere -latest -products * `
 
 テスト DLL が存在しない場合や VSTest が見つからない場合はジョブを失敗させる。テスト失敗時にも TRX と binlog を artifact として保存する。
 
+### 3.4 自動検証 workflow
+
+- `.github/workflows/ci.yml` は pull request と `main` / `master` への push で実行し、Release/x64 の restore、build、test、配布 ZIP 作成を順に行う。
+- `.github/workflows/ui-smoke.yml` は警告ダイアログの出ない `samples/ui-smoke.config.xml` でアプリを起動し、30 秒以内に対象ウィンドウが現れることを確認する。
+- UI 撮影は `tools/capture-window.ps1` が `PrintWindow` を使って対象ウィンドウだけを PNG 化する。PNG シグネチャ、画像サイズ、単色でないことを検証し、タイトルとプロセス ID をスクリプトログへ残す。
+- すべての artifact 名には run ID と再実行番号を含める。TRX、binlog、配布 ZIP、画面 PNG、スクリプトログ、存在する場合のアプリログを 14 日間保存する。
+- 正常起動中にアプリログが作られなかった場合は、その旨を示す `README.txt` をログ用フォルダーへ保存し、ログ収集処理自体が実行されたことを確認可能にする。
+
 ## 4. GitHub Actions の基準
 
 ### 4.1 権限

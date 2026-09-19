@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- UI スモークテストで警告ダイアログを出さず、メイン画面を撮影するための設定です。 -->
+<launcher title="業務ランチャー UI スモークテスト" version="1">
+  <categories>
+    <category id="system" name="システムツール" order="10">
+      <button id="notepad"
+              name="メモ帳"
+              order="10"
+              executable="%WINDIR%\System32\notepad.exe"
+              arguments=""
+              workingDirectory="%WINDIR%\System32" />
+    </category>
+  </categories>
+</launcher>

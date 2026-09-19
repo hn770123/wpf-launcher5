@@ -1,0 +1,99 @@
+# ui-smoke.yml
+# ビルド済み WPF アプリをサンプル設定で起動し、対象ウィンドウだけを撮影します。
+name: UI smoke
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: powershell
+
+jobs:
+  capture-window:
+    name: Launch and capture window
+    runs-on: windows-2022
+    timeout-minutes: 20
+
+    steps:
+      - name: ソースを取得
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: 成果物フォルダーを準備
+        run: |
+          New-Item -ItemType Directory -Force artifacts/ui-smoke | Out-Null
+          New-Item -ItemType Directory -Force artifacts/logs | Out-Null
+
+      - name: Release x64 を復元してビルド
+        run: |
+          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          $msbuild = & $vswhere -latest -products * `
+            -requires Microsoft.Component.MSBuild `
+            -requires Microsoft.Net.Component.4.6.2.TargetingPack `
+            -find 'MSBuild\**\Bin\MSBuild.exe' | Select-Object -First 1
+          if (-not $msbuild) {
+            throw "必要な MSBuild または .NET Framework 4.6.2 Targeting Pack が見つかりません。"
+          }
+
+          & $msbuild Launcher.sln /restore /m `
+            /p:Configuration=Release /p:Platform=x64 `
+            /bl:artifacts/logs/Launcher.UI.Release.x64.binlog
+          if ($LASTEXITCODE -ne 0) {
+            throw "UI スモークテスト用ビルドに失敗しました (exit code: $LASTEXITCODE)。"
+          }
+
+      - name: アプリを起動して対象ウィンドウを撮影
+        run: |
+          $logPath = Join-Path $PWD 'artifacts\ui-smoke\ui-smoke.log'
+          Start-Transcript -Path $logPath -Force
+          $process = $null
+          try {
+            $executable = Join-Path $PWD 'src\Launcher.App\bin\x64\Release\net462\Launcher.App.exe'
+            $configuration = Join-Path $PWD 'samples\ui-smoke.config.xml'
+            $process = Start-Process -FilePath $executable `
+              -ArgumentList @('--config', $configuration) -PassThru
+            Write-Host "Launcher.App を起動しました。ProcessId=$($process.Id)"
+
+            ./tools/capture-window.ps1 -ProcessId $process.Id `
+              -OutputPath 'artifacts\ui-smoke\launcher-window.png' -TimeoutSeconds 30
+          }
+          finally {
+            if ($process -and -not $process.HasExited) {
+              Stop-Process -Id $process.Id -Force
+              $process.WaitForExit(5000) | Out-Null
+            }
+            Stop-Transcript
+          }
+
+      - name: アプリログを収集
+        if: ${{ always() }}
+        run: |
+          $source = Join-Path $env:LOCALAPPDATA 'WpfLauncher\Logs'
+          $destination = 'artifacts\ui-smoke\app-logs'
+          New-Item -ItemType Directory -Force $destination | Out-Null
+          if (Test-Path -LiteralPath $source) {
+            Copy-Item -Path "$source\*" -Destination $destination -Recurse -Force
+          } else {
+            '正常起動ではアプリログは生成されませんでした。' |
+              Set-Content -Path "$destination\README.txt" -Encoding utf8
+          }
+
+      - name: UI スモーク診断物を保存
+        if: ${{ always() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ui-smoke-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            artifacts/ui-smoke/**
+            artifacts/logs/Launcher.UI.Release.x64.binlog
+          if-no-files-found: warn
+          retention-days: 14
