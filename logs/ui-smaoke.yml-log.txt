@@ -1,242 +1,561 @@
-﻿2026-09-19T04:35:32.0468041Z Current runner version: '2.337.0'
-2026-09-19T04:35:32.0491591Z ##[group]Runner Image Provisioner
-2026-09-19T04:35:32.0492415Z Hosted Compute Agent
-2026-09-19T04:35:32.0492934Z Version: 20260828.587
-2026-09-19T04:35:32.0493523Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
-2026-09-19T04:35:32.0494197Z Build Date: 2026-08-28T16:44:25Z
-2026-09-19T04:35:32.0494803Z Worker ID: {a460c503-bd2e-4007-8a07-5d55636a9f8b}
-2026-09-19T04:35:32.0495459Z Azure Region: westus2
-2026-09-19T04:35:32.0495979Z ##[endgroup]
-2026-09-19T04:35:32.0497313Z ##[group]Operating System
-2026-09-19T04:35:32.0497932Z Microsoft Windows Server 2022
-2026-09-19T04:35:32.0498528Z 10.0.20348
-2026-09-19T04:35:32.0498986Z Datacenter
-2026-09-19T04:35:32.0499450Z ##[endgroup]
-2026-09-19T04:35:32.0499927Z ##[group]Runner Image
-2026-09-19T04:35:32.0500442Z Image: windows-2022
-2026-09-19T04:35:32.0500941Z Version: 20260913.307.1
-2026-09-19T04:35:32.0502272Z Included Software: https://github.com/actions/runner-images/blob/win22/20260913.307/images/windows/Windows2022-Readme.md
-2026-09-19T04:35:32.0503746Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20260913.307
-2026-09-19T04:35:32.0504633Z ##[endgroup]
-2026-09-19T04:35:32.0505650Z ##[group]GITHUB_TOKEN Permissions
-2026-09-19T04:35:32.0507355Z Contents: read
-2026-09-19T04:35:32.0507923Z Metadata: read
-2026-09-19T04:35:32.0508436Z ##[endgroup]
-2026-09-19T04:35:32.0510319Z Secret source: Actions
-2026-09-19T04:35:32.0511207Z Cache mode: write
-2026-09-19T04:35:32.0511837Z Prepare workflow directory
-2026-09-19T04:35:32.0894471Z Prepare all required actions
-2026-09-19T04:35:32.0942436Z Getting action download info
-2026-09-19T04:35:32.5129340Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
-2026-09-19T04:35:32.6146519Z Download action repository 'actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a' (SHA:043fb46d1a93c77aae656e7c1c64a875d1fc6a0a)
-2026-09-19T04:35:32.8303098Z Complete job name: Launch and capture window
-2026-09-19T04:35:32.9855279Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-2026-09-19T04:35:32.9856849Z with:
-2026-09-19T04:35:32.9857440Z   persist-credentials: false
-2026-09-19T04:35:32.9858129Z   repository: hn770123/wpf-launcher5
-2026-09-19T04:35:32.9863468Z   token: ***
-2026-09-19T04:35:32.9863950Z   ssh-strict: true
-2026-09-19T04:35:32.9864438Z   ssh-user: git
-2026-09-19T04:35:32.9864905Z   clean: true
-2026-09-19T04:35:32.9865401Z   sparse-checkout-cone-mode: true
-2026-09-19T04:35:32.9865997Z   fetch-depth: 1
-2026-09-19T04:35:32.9866482Z   fetch-tags: false
-2026-09-19T04:35:32.9866985Z   show-progress: true
-2026-09-19T04:35:32.9867490Z   lfs: false
-2026-09-19T04:35:32.9867942Z   submodules: false
-2026-09-19T04:35:32.9868440Z   set-safe-directory: true
-2026-09-19T04:35:32.9869006Z   allow-unsafe-pr-checkout: false
-2026-09-19T04:35:32.9869824Z ##[endgroup]
-2026-09-19T04:35:33.1317259Z Syncing repository: hn770123/wpf-launcher5
-2026-09-19T04:35:33.1320679Z ##[group]Getting Git version info
-2026-09-19T04:35:33.1322580Z Working directory is 'D:\a\wpf-launcher5\wpf-launcher5'
-2026-09-19T04:35:33.2405029Z [command]"C:\Program Files\Git\bin\git.exe" version
-2026-09-19T04:35:33.5616729Z git version 2.55.0.windows.5
-2026-09-19T04:35:33.5663702Z ##[endgroup]
-2026-09-19T04:35:33.5678843Z Temporarily overriding HOME='D:\a\_temp\33e0f55a-c771-443f-9bb7-392367473a7a' before making global git config changes
-2026-09-19T04:35:33.5681738Z Adding repository directory to the temporary git global config as a safe directory
-2026-09-19T04:35:33.5693640Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wpf-launcher5\wpf-launcher5
-2026-09-19T04:35:33.6197092Z Deleting the contents of 'D:\a\wpf-launcher5\wpf-launcher5'
-2026-09-19T04:35:33.6201734Z ##[group]Determining repository object format
-2026-09-19T04:35:33.6204538Z ##[endgroup]
-2026-09-19T04:35:33.6206023Z ##[group]Initializing the repository
-2026-09-19T04:35:33.6216786Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\wpf-launcher5\wpf-launcher5
-2026-09-19T04:35:33.6881359Z Initialized empty Git repository in D:/a/wpf-launcher5/wpf-launcher5/.git/
-2026-09-19T04:35:33.6920582Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/hn770123/wpf-launcher5
-2026-09-19T04:35:33.7400201Z ##[endgroup]
-2026-09-19T04:35:33.7402279Z ##[group]Disabling automatic garbage collection
-2026-09-19T04:35:33.7409575Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
-2026-09-19T04:35:33.7642164Z ##[endgroup]
-2026-09-19T04:35:33.7644187Z ##[group]Setting up auth
-2026-09-19T04:35:33.7645552Z Removing SSH command configuration
-2026-09-19T04:35:33.7654807Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
-2026-09-19T04:35:33.7915751Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
-2026-09-19T04:35:35.0278032Z Removing HTTP extra header
-2026-09-19T04:35:35.0289784Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
-2026-09-19T04:35:35.0540395Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
-2026-09-19T04:35:35.5080622Z Removing includeIf entries pointing to credentials config files
-2026-09-19T04:35:35.5095128Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
-2026-09-19T04:35:35.5329757Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
-2026-09-19T04:35:36.0127728Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-6bb6d148-16c4-4e9a-8475-46a8d94e6c01.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
-2026-09-19T04:35:36.0397360Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git.path D:\a\_temp\git-credentials-6bb6d148-16c4-4e9a-8475-46a8d94e6c01.config
-2026-09-19T04:35:36.0652792Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git/worktrees/*.path D:\a\_temp\git-credentials-6bb6d148-16c4-4e9a-8475-46a8d94e6c01.config
-2026-09-19T04:35:36.0954276Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-6bb6d148-16c4-4e9a-8475-46a8d94e6c01.config
-2026-09-19T04:35:36.1198027Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-6bb6d148-16c4-4e9a-8475-46a8d94e6c01.config
-2026-09-19T04:35:36.1479888Z ##[endgroup]
-2026-09-19T04:35:36.1480778Z ##[group]Fetching the repository
-2026-09-19T04:35:36.1494862Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +495056589884cde078f02d27be4ce0d24c491d9e:refs/remotes/origin/main
-2026-09-19T04:35:37.1347785Z From https://github.com/hn770123/wpf-launcher5
-2026-09-19T04:35:37.1348688Z  * [new ref]         495056589884cde078f02d27be4ce0d24c491d9e -> origin/main
-2026-09-19T04:35:37.1388959Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/main
-2026-09-19T04:35:37.1645040Z   origin/main
-2026-09-19T04:35:37.1676252Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/main
-2026-09-19T04:35:37.1907179Z 495056589884cde078f02d27be4ce0d24c491d9e
-2026-09-19T04:35:37.1930044Z ##[endgroup]
-2026-09-19T04:35:37.1930443Z ##[group]Determining the checkout info
-2026-09-19T04:35:37.1932213Z ##[endgroup]
-2026-09-19T04:35:37.1940053Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
-2026-09-19T04:35:37.2276152Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
-2026-09-19T04:35:37.2490294Z ##[group]Checking out the ref
-2026-09-19T04:35:37.2497957Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
-2026-09-19T04:35:37.2985796Z Switched to a new branch 'main'
-2026-09-19T04:35:37.3034957Z branch 'main' set up to track 'origin/main'.
-2026-09-19T04:35:37.3070240Z ##[endgroup]
-2026-09-19T04:35:37.3385665Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
-2026-09-19T04:35:37.3590076Z 495056589884cde078f02d27be4ce0d24c491d9e
-2026-09-19T04:35:37.3619685Z ##[group]Removing auth
-2026-09-19T04:35:37.3620015Z Removing SSH command configuration
-2026-09-19T04:35:37.3630205Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
-2026-09-19T04:35:37.3857474Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
-2026-09-19T04:35:37.8313248Z Removing HTTP extra header
-2026-09-19T04:35:37.8321077Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
-2026-09-19T04:35:37.8551927Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
-2026-09-19T04:35:38.2872063Z Removing includeIf entries pointing to credentials config files
-2026-09-19T04:35:38.2880482Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
-2026-09-19T04:35:38.3079617Z includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git.path
-2026-09-19T04:35:38.3080207Z includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git/worktrees/*.path
-2026-09-19T04:35:38.3080652Z includeif.gitdir:/github/workspace/.git.path
-2026-09-19T04:35:38.3081028Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
-2026-09-19T04:35:38.3109985Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git.path
-2026-09-19T04:35:38.3301068Z D:\a\_temp\git-credentials-6bb6d148-16c4-4e9a-8475-46a8d94e6c01.config
-2026-09-19T04:35:38.3335494Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git.path D\:\\a\\_temp\\git\-credentials\-6bb6d148\-16c4\-4e9a\-8475\-46a8d94e6c01\.config
-2026-09-19T04:35:38.3575431Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git/worktrees/*.path
-2026-09-19T04:35:38.3777152Z D:\a\_temp\git-credentials-6bb6d148-16c4-4e9a-8475-46a8d94e6c01.config
-2026-09-19T04:35:38.3811124Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git/worktrees/*.path D\:\\a\\_temp\\git\-credentials\-6bb6d148\-16c4\-4e9a\-8475\-46a8d94e6c01\.config
-2026-09-19T04:35:38.4034743Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
-2026-09-19T04:35:38.4228362Z /github/runner_temp/git-credentials-6bb6d148-16c4-4e9a-8475-46a8d94e6c01.config
-2026-09-19T04:35:38.4264154Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-6bb6d148\-16c4\-4e9a\-8475\-46a8d94e6c01\.config
-2026-09-19T04:35:38.4486044Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
-2026-09-19T04:35:38.4671781Z /github/runner_temp/git-credentials-6bb6d148-16c4-4e9a-8475-46a8d94e6c01.config
-2026-09-19T04:35:38.4704422Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-6bb6d148\-16c4\-4e9a\-8475\-46a8d94e6c01\.config
-2026-09-19T04:35:38.4930617Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
-2026-09-19T04:35:38.9150035Z Removing credentials config 'D:\a\_temp\git-credentials-6bb6d148-16c4-4e9a-8475-46a8d94e6c01.config'
-2026-09-19T04:35:38.9161686Z ##[endgroup]
-2026-09-19T04:35:38.9476963Z ##[group]Run New-Item -ItemType Directory -Force artifacts/ui-smoke | Out-Null
-2026-09-19T04:35:38.9477678Z [36;1mNew-Item -ItemType Directory -Force artifacts/ui-smoke | Out-Null[0m
-2026-09-19T04:35:38.9478194Z [36;1mNew-Item -ItemType Directory -Force artifacts/logs | Out-Null[0m
-2026-09-19T04:35:38.9592141Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
-2026-09-19T04:35:38.9592688Z ##[endgroup]
-2026-09-19T04:35:41.8224236Z ##[group]Run $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
-2026-09-19T04:35:41.8225000Z [36;1m$vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"[0m
-2026-09-19T04:35:41.8225501Z [36;1m$msbuild = & $vswhere -latest -products * `[0m
-2026-09-19T04:35:41.8225854Z [36;1m  -requires Microsoft.Component.MSBuild `[0m
-2026-09-19T04:35:41.8226260Z [36;1m  -requires Microsoft.Net.Component.4.6.2.TargetingPack `[0m
-2026-09-19T04:35:41.8226704Z [36;1m  -find 'MSBuild\**\Bin\MSBuild.exe' | Select-Object -First 1[0m
-2026-09-19T04:35:41.8287662Z [36;1mif (-not $msbuild) {[0m
-2026-09-19T04:35:41.8288097Z [36;1m  throw "必要な MSBuild または .NET Framework 4.6.2 Targeting Pack が見つかりません。"[0m
-2026-09-19T04:35:41.8288531Z [36;1m}[0m
-2026-09-19T04:35:41.8288708Z [36;1m[0m
-2026-09-19T04:35:41.8288934Z [36;1m& $msbuild Launcher.sln /restore /m `[0m
-2026-09-19T04:35:41.8289316Z [36;1m  /p:Configuration=Release /p:Platform=x64 `[0m
-2026-09-19T04:35:41.8289688Z [36;1m  /bl:artifacts/logs/Launcher.UI.Release.x64.binlog[0m
-2026-09-19T04:35:41.8290023Z [36;1mif ($LASTEXITCODE -ne 0) {[0m
-2026-09-19T04:35:41.8290342Z [36;1m  throw "UI スモークテスト用ビルドに失敗しました (exit code: $LASTEXITCODE)。"[0m
-2026-09-19T04:35:41.8290659Z [36;1m}[0m
-2026-09-19T04:35:41.8329051Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
-2026-09-19T04:35:41.8329495Z ##[endgroup]
-2026-09-19T04:35:42.1660858Z At D:\a\_temp\efba5c48-39b2-4bd2-aa8c-87fa92f5575c.ps1:8 char:98
-2026-09-19T04:35:42.1662064Z + ... Ÿã¯ .NET Framework 4.6.2 Targeting Pack ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚"
-2026-09-19T04:35:42.1662778Z +                                                                      ~~~~
-2026-09-19T04:35:42.1663406Z Unexpected token 'ã€‚"
-2026-09-19T04:35:42.1663809Z }
-2026-09-19T04:35:42.1664145Z & $msbuild Launcher.sln /restore /m `
-2026-09-19T04:35:42.1664666Z   /p:Configuration=Release /p:Platform=x64 `
-2026-09-19T04:35:42.1665196Z   /bl:artifacts/logs/Launcher.UI.Release.x64.binlog
-2026-09-19T04:35:42.1665734Z if ($LASTEXITCODE -ne 0) {
-2026-09-19T04:35:42.1666530Z   throw "UI ã‚¹ãƒ¢ãƒ¼ã‚¯ãƒ†ã‚¹ãƒˆç”¨ãƒ“ãƒ«ãƒ‰ã«å¤±æ•—ã—ã¾ã—ãŸ' in expression or statement.
-2026-09-19T04:35:42.1667319Z At D:\a\_temp\efba5c48-39b2-4bd2-aa8c-87fa92f5575c.ps1:15 char:96
-2026-09-19T04:35:42.1668178Z + ... ‚¹ãƒˆç”¨ãƒ“ãƒ«ãƒ‰ã«å¤±æ•—ã—ã¾ã—ãŸ (exit code: $LASTEXITCODE)ã€‚"
-2026-09-19T04:35:42.1668812Z +                                                                        ~~
-2026-09-19T04:35:42.1669355Z The string is missing the terminator: '.
-2026-09-19T04:35:42.1669957Z At D:\a\_temp\efba5c48-39b2-4bd2-aa8c-87fa92f5575c.ps1:7 char:20
-2026-09-19T04:35:42.1670531Z + if (-not $msbuild) {
-2026-09-19T04:35:42.1670877Z +                    ~
-2026-09-19T04:35:42.1671327Z Missing closing '}' in statement block or type definition.
-2026-09-19T04:35:42.1672378Z     + CategoryInfo          : ParserError: (:) [], ParseException
-2026-09-19T04:35:42.1673004Z     + FullyQualifiedErrorId : UnexpectedToken
-2026-09-19T04:35:42.1673478Z  
-2026-09-19T04:35:42.1922986Z ##[error]Process completed with exit code 1.
-2026-09-19T04:35:42.2064656Z ##[group]Run $source = Join-Path $env:LOCALAPPDATA 'WpfLauncher\Logs'
-2026-09-19T04:35:42.2065245Z [36;1m$source = Join-Path $env:LOCALAPPDATA 'WpfLauncher\Logs'[0m
-2026-09-19T04:35:42.2065647Z [36;1m$destination = 'artifacts\ui-smoke\app-logs'[0m
-2026-09-19T04:35:42.2066060Z [36;1mNew-Item -ItemType Directory -Force $destination | Out-Null[0m
-2026-09-19T04:35:42.2066451Z [36;1mif (Test-Path -LiteralPath $source) {[0m
-2026-09-19T04:35:42.2066941Z [36;1m  Copy-Item -Path "$source\*" -Destination $destination -Recurse -Force[0m
-2026-09-19T04:35:42.2067333Z [36;1m} else {[0m
-2026-09-19T04:35:42.2067539Z [36;1m  '正常起動ではアプリログは生成されませんでした。' |[0m
-2026-09-19T04:35:42.2067898Z [36;1m    Set-Content -Path "$destination\README.txt" -Encoding utf8[0m
-2026-09-19T04:35:42.2068237Z [36;1m}[0m
-2026-09-19T04:35:42.2107143Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
-2026-09-19T04:35:42.2107669Z ##[endgroup]
-2026-09-19T04:35:42.4040004Z At D:\a\_temp\6486147b-93d0-4f85-9954-28aecc13e62d.ps1:8 char:59
-2026-09-19T04:35:42.4041019Z + ... å¸¸èµ·å‹•ã§ã¯ã‚¢ãƒ—ãƒªãƒ­ã‚°ã¯ç”Ÿæˆã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚' |
-2026-09-19T04:35:42.4041625Z +                                                         ~~~~~~~~~~~~~~~~~
-2026-09-19T04:35:42.4042154Z The string is missing the terminator: '.
-2026-09-19T04:35:42.4042767Z At D:\a\_temp\6486147b-93d0-4f85-9954-28aecc13e62d.ps1:8 char:24
-2026-09-19T04:35:42.4043577Z + ... å¸¸èµ·å‹•ã§ã¯ã‚¢ãƒ—ãƒªãƒ­ã‚°ã¯ç”Ÿæˆã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚' |
-2026-09-19T04:35:42.4043930Z +                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-2026-09-19T04:35:42.4044427Z Unexpected token '¢ãƒ—ãƒªãƒ­ã‚°ã¯ç”Ÿæˆã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚' |
-2026-09-19T04:35:42.4045156Z     Set-Content -Path "$destination\README.txt" -Encoding utf8
-2026-09-19T04:35:42.4045566Z }
-2026-09-19T04:35:42.4046168Z if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }' in expression or statement.
-2026-09-19T04:35:42.4047092Z At D:\a\_temp\6486147b-93d0-4f85-9954-28aecc13e62d.ps1:7 char:8
-2026-09-19T04:35:42.4047520Z + } else {
-2026-09-19T04:35:42.4047807Z +        ~
-2026-09-19T04:35:42.4048268Z Missing closing '}' in statement block or type definition.
-2026-09-19T04:35:42.4048674Z     + CategoryInfo          : ParserError: (:) [], ParseException
-2026-09-19T04:35:42.4049084Z     + FullyQualifiedErrorId : TerminatorExpectedAtEndOfString
-2026-09-19T04:35:42.4049402Z  
-2026-09-19T04:35:42.4176386Z ##[error]Process completed with exit code 1.
-2026-09-19T04:35:42.4373658Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
-2026-09-19T04:35:42.4374123Z with:
-2026-09-19T04:35:42.4374345Z   name: ui-smoke-35421697671-1
-2026-09-19T04:35:42.4374738Z   path: artifacts/ui-smoke/**
+2026-09-19T12:24:25.6395667Z Current runner version: '2.337.0'
+2026-09-19T12:24:25.6420030Z ##[group]Runner Image Provisioner
+2026-09-19T12:24:25.6420822Z Hosted Compute Agent
+2026-09-19T12:24:25.6421416Z Version: 20260828.587
+2026-09-19T12:24:25.6422037Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-19T12:24:25.6422769Z Build Date: 2026-08-28T16:44:25Z
+2026-09-19T12:24:25.6423454Z Worker ID: {f0769e25-43a0-432a-a9e3-4ace358e5ce2}
+2026-09-19T12:24:25.6424160Z Azure Region: centralus
+2026-09-19T12:24:25.6424649Z ##[endgroup]
+2026-09-19T12:24:25.6425906Z ##[group]Operating System
+2026-09-19T12:24:25.6426515Z Microsoft Windows Server 2022
+2026-09-19T12:24:25.6427231Z 10.0.20348
+2026-09-19T12:24:25.6427680Z Datacenter
+2026-09-19T12:24:25.6428109Z ##[endgroup]
+2026-09-19T12:24:25.6428616Z ##[group]Runner Image
+2026-09-19T12:24:25.6429115Z Image: windows-2022
+2026-09-19T12:24:25.6429640Z Version: 20260913.307.1
+2026-09-19T12:24:25.6430976Z Included Software: https://github.com/actions/runner-images/blob/win22/20260913.307/images/windows/Windows2022-Readme.md
+2026-09-19T12:24:25.6432348Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20260913.307
+2026-09-19T12:24:25.6433156Z ##[endgroup]
+2026-09-19T12:24:25.6434119Z ##[group]GITHUB_TOKEN Permissions
+2026-09-19T12:24:25.6435883Z Contents: read
+2026-09-19T12:24:25.6436377Z Metadata: read
+2026-09-19T12:24:25.6436885Z ##[endgroup]
+2026-09-19T12:24:25.6438798Z Secret source: Actions
+2026-09-19T12:24:25.6439572Z Cache mode: write
+2026-09-19T12:24:25.6440212Z Prepare workflow directory
+2026-09-19T12:24:25.6803865Z Prepare all required actions
+2026-09-19T12:24:25.6849812Z Getting action download info
+2026-09-19T12:24:25.9363541Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-09-19T12:24:26.0299250Z Download action repository 'actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a' (SHA:043fb46d1a93c77aae656e7c1c64a875d1fc6a0a)
+2026-09-19T12:24:26.2314504Z Complete job name: Launch and capture window
+2026-09-19T12:24:26.3798577Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-09-19T12:24:26.3800492Z with:
+2026-09-19T12:24:26.3801046Z   persist-credentials: false
+2026-09-19T12:24:26.3801583Z   repository: hn770123/wpf-launcher5
+2026-09-19T12:24:26.3805236Z   token: ***
+2026-09-19T12:24:26.3805688Z   ssh-strict: true
+2026-09-19T12:24:26.3806106Z   ssh-user: git
+2026-09-19T12:24:26.3806532Z   clean: true
+2026-09-19T12:24:26.3806986Z   sparse-checkout-cone-mode: true
+2026-09-19T12:24:26.3807488Z   fetch-depth: 1
+2026-09-19T12:24:26.3807959Z   fetch-tags: false
+2026-09-19T12:24:26.3808417Z   show-progress: true
+2026-09-19T12:24:26.3808845Z   lfs: false
+2026-09-19T12:24:26.3809275Z   submodules: false
+2026-09-19T12:24:26.3809806Z   set-safe-directory: true
+2026-09-19T12:24:26.3810304Z   allow-unsafe-pr-checkout: false
+2026-09-19T12:24:26.3811140Z ##[endgroup]
+2026-09-19T12:24:26.5238722Z Syncing repository: hn770123/wpf-launcher5
+2026-09-19T12:24:26.5240658Z ##[group]Getting Git version info
+2026-09-19T12:24:26.5241377Z Working directory is 'D:\a\wpf-launcher5\wpf-launcher5'
+2026-09-19T12:24:26.6269218Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-09-19T12:24:26.9368991Z git version 2.55.0.windows.5
+2026-09-19T12:24:26.9408591Z ##[endgroup]
+2026-09-19T12:24:26.9422602Z Temporarily overriding HOME='D:\a\_temp\64df9231-2ad1-4117-a825-41ae7bc52e35' before making global git config changes
+2026-09-19T12:24:26.9423793Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-19T12:24:26.9432205Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wpf-launcher5\wpf-launcher5
+2026-09-19T12:24:26.9927661Z Deleting the contents of 'D:\a\wpf-launcher5\wpf-launcher5'
+2026-09-19T12:24:26.9931911Z ##[group]Determining repository object format
+2026-09-19T12:24:26.9933947Z ##[endgroup]
+2026-09-19T12:24:26.9934586Z ##[group]Initializing the repository
+2026-09-19T12:24:26.9942701Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\wpf-launcher5\wpf-launcher5
+2026-09-19T12:24:27.0581849Z Initialized empty Git repository in D:/a/wpf-launcher5/wpf-launcher5/.git/
+2026-09-19T12:24:27.0621130Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/hn770123/wpf-launcher5
+2026-09-19T12:24:27.1077486Z ##[endgroup]
+2026-09-19T12:24:27.1078203Z ##[group]Disabling automatic garbage collection
+2026-09-19T12:24:27.1158074Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-09-19T12:24:27.1333527Z ##[endgroup]
+2026-09-19T12:24:27.1334805Z ##[group]Setting up auth
+2026-09-19T12:24:27.1335828Z Removing SSH command configuration
+2026-09-19T12:24:27.1346210Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-09-19T12:24:27.1586222Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-09-19T12:24:28.3949758Z Removing HTTP extra header
+2026-09-19T12:24:28.3958581Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-19T12:24:28.4211965Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-09-19T12:24:28.8738089Z Removing includeIf entries pointing to credentials config files
+2026-09-19T12:24:28.8748968Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-19T12:24:28.8999221Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-09-19T12:24:29.3427095Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-ffee285d-6db1-4b86-bd68-9b9a2d51d2d0.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-09-19T12:24:29.3652138Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git.path D:\a\_temp\git-credentials-ffee285d-6db1-4b86-bd68-9b9a2d51d2d0.config
+2026-09-19T12:24:29.3885487Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git/worktrees/*.path D:\a\_temp\git-credentials-ffee285d-6db1-4b86-bd68-9b9a2d51d2d0.config
+2026-09-19T12:24:29.4160415Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-ffee285d-6db1-4b86-bd68-9b9a2d51d2d0.config
+2026-09-19T12:24:29.4379137Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-ffee285d-6db1-4b86-bd68-9b9a2d51d2d0.config
+2026-09-19T12:24:29.4595403Z ##[endgroup]
+2026-09-19T12:24:29.4595962Z ##[group]Fetching the repository
+2026-09-19T12:24:29.4610436Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e98a2c27ce51a3b8702a9914456ccbd45124ae73:refs/remotes/origin/main
+2026-09-19T12:24:30.4653344Z From https://github.com/hn770123/wpf-launcher5
+2026-09-19T12:24:30.4654208Z  * [new ref]         e98a2c27ce51a3b8702a9914456ccbd45124ae73 -> origin/main
+2026-09-19T12:24:30.4700960Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/main
+2026-09-19T12:24:30.4962250Z   origin/main
+2026-09-19T12:24:30.4999256Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/main
+2026-09-19T12:24:30.5238325Z e98a2c27ce51a3b8702a9914456ccbd45124ae73
+2026-09-19T12:24:30.5264413Z ##[endgroup]
+2026-09-19T12:24:30.5265059Z ##[group]Determining the checkout info
+2026-09-19T12:24:30.5267333Z ##[endgroup]
+2026-09-19T12:24:30.5274231Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-09-19T12:24:30.5630846Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-09-19T12:24:30.5847451Z ##[group]Checking out the ref
+2026-09-19T12:24:30.5855958Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2026-09-19T12:24:30.6330431Z Switched to a new branch 'main'
+2026-09-19T12:24:30.6374619Z branch 'main' set up to track 'origin/main'.
+2026-09-19T12:24:30.6412236Z ##[endgroup]
+2026-09-19T12:24:30.6745875Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-09-19T12:24:30.6968607Z e98a2c27ce51a3b8702a9914456ccbd45124ae73
+2026-09-19T12:24:30.7001065Z ##[group]Removing auth
+2026-09-19T12:24:30.7001447Z Removing SSH command configuration
+2026-09-19T12:24:30.7013078Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-09-19T12:24:30.7247571Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-09-19T12:24:31.1691389Z Removing HTTP extra header
+2026-09-19T12:24:31.1704255Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-19T12:24:31.1933570Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-09-19T12:24:31.6389836Z Removing includeIf entries pointing to credentials config files
+2026-09-19T12:24:31.6397540Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-19T12:24:31.6593970Z includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git.path
+2026-09-19T12:24:31.6594938Z includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git/worktrees/*.path
+2026-09-19T12:24:31.6595607Z includeif.gitdir:/github/workspace/.git.path
+2026-09-19T12:24:31.6596168Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-19T12:24:31.6624136Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git.path
+2026-09-19T12:24:31.6817631Z D:\a\_temp\git-credentials-ffee285d-6db1-4b86-bd68-9b9a2d51d2d0.config
+2026-09-19T12:24:31.6850723Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git.path D\:\\a\\_temp\\git\-credentials\-ffee285d\-6db1\-4b86\-bd68\-9b9a2d51d2d0\.config
+2026-09-19T12:24:31.7087536Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git/worktrees/*.path
+2026-09-19T12:24:31.7275575Z D:\a\_temp\git-credentials-ffee285d-6db1-4b86-bd68-9b9a2d51d2d0.config
+2026-09-19T12:24:31.7310427Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git/worktrees/*.path D\:\\a\\_temp\\git\-credentials\-ffee285d\-6db1\-4b86\-bd68\-9b9a2d51d2d0\.config
+2026-09-19T12:24:31.7533779Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-09-19T12:24:31.7722412Z /github/runner_temp/git-credentials-ffee285d-6db1-4b86-bd68-9b9a2d51d2d0.config
+2026-09-19T12:24:31.7756495Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-ffee285d\-6db1\-4b86\-bd68\-9b9a2d51d2d0\.config
+2026-09-19T12:24:31.7985917Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-19T12:24:31.8183284Z /github/runner_temp/git-credentials-ffee285d-6db1-4b86-bd68-9b9a2d51d2d0.config
+2026-09-19T12:24:31.8213928Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-ffee285d\-6db1\-4b86\-bd68\-9b9a2d51d2d0\.config
+2026-09-19T12:24:31.8462907Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-09-19T12:24:32.2639031Z Removing credentials config 'D:\a\_temp\git-credentials-ffee285d-6db1-4b86-bd68-9b9a2d51d2d0.config'
+2026-09-19T12:24:32.2649234Z ##[endgroup]
+2026-09-19T12:24:32.2952404Z ##[group]Run New-Item -ItemType Directory -Force artifacts/ui-smoke | Out-Null
+2026-09-19T12:24:32.2953138Z [36;1mNew-Item -ItemType Directory -Force artifacts/ui-smoke | Out-Null[0m
+2026-09-19T12:24:32.2953638Z [36;1mNew-Item -ItemType Directory -Force artifacts/logs | Out-Null[0m
+2026-09-19T12:24:32.3051440Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-19T12:24:32.3051913Z ##[endgroup]
+2026-09-19T12:24:32.6828067Z ##[group]Run $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+2026-09-19T12:24:32.6828845Z [36;1m$vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"[0m
+2026-09-19T12:24:32.6829284Z [36;1m$msbuild = & $vswhere -latest -products * `[0m
+2026-09-19T12:24:32.6829603Z [36;1m  -requires Microsoft.Component.MSBuild `[0m
+2026-09-19T12:24:32.6829977Z [36;1m  -requires Microsoft.Net.Component.4.6.2.TargetingPack `[0m
+2026-09-19T12:24:32.6830381Z [36;1m  -find 'MSBuild\**\Bin\MSBuild.exe' | Select-Object -First 1[0m
+2026-09-19T12:24:32.6830700Z [36;1mif (-not $msbuild) {[0m
+2026-09-19T12:24:32.6831028Z [36;1m  throw "必要な MSBuild または .NET Framework 4.6.2 Targeting Pack が見つかりません。"[0m
+2026-09-19T12:24:32.6831358Z [36;1m}[0m
+2026-09-19T12:24:32.6831515Z [36;1m[0m
+2026-09-19T12:24:32.6831705Z [36;1m& $msbuild Launcher.sln /restore /m `[0m
+2026-09-19T12:24:32.6832082Z [36;1m  /p:Configuration=Release /p:Platform=x64 `[0m
+2026-09-19T12:24:32.6832414Z [36;1m  /bl:artifacts/logs/Launcher.UI.Release.x64.binlog[0m
+2026-09-19T12:24:32.6832716Z [36;1mif ($LASTEXITCODE -ne 0) {[0m
+2026-09-19T12:24:32.6833007Z [36;1m  throw "UI スモークテスト用ビルドに失敗しました (exit code: $LASTEXITCODE)。"[0m
+2026-09-19T12:24:32.6833291Z [36;1m}[0m
+2026-09-19T12:24:32.6870238Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-19T12:24:32.6870585Z ##[endgroup]
+2026-09-19T12:24:41.0998044Z MSBuild version 17.14.51+25f168cee for .NET Framework
+2026-09-19T12:24:42.5358011Z Build started 9/19/2026 12:24:42 PM.
+2026-09-19T12:24:42.5626073Z 
+2026-09-19T12:24:43.7311688Z      1>Project "D:\a\wpf-launcher5\wpf-launcher5\Launcher.sln" on node 1 (Restore target(s)).
+2026-09-19T12:24:43.7313307Z      1>ValidateSolutionConfiguration:
+2026-09-19T12:24:43.7313859Z          Building solution configuration "Release|x64".
+2026-09-19T12:24:50.6507135Z        _GetAllRestoreProjectPathItems:
+2026-09-19T12:24:50.6507856Z          Determining projects to restore...
+2026-09-19T12:24:51.4756993Z        Restore:
+2026-09-19T12:24:51.4757692Z          X.509 certificate chain validation will use the default trust store selected by .NET for code signing.
+2026-09-19T12:24:51.4758780Z          X.509 certificate chain validation will use the default trust store selected by .NET for timestamping.
+2026-09-19T12:24:52.1931291Z          Restoring packages for D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\Launcher.App.vbproj...
+2026-09-19T12:24:52.1932500Z          Restoring packages for D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\Launcher.Core.vbproj...
+2026-09-19T12:24:52.1937399Z          Restoring packages for D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj...
+2026-09-19T12:24:52.5158951Z          Generating MSBuild file D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\obj\Launcher.App.vbproj.nuget.g.props.
+2026-09-19T12:24:52.5160667Z          Generating MSBuild file D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\obj\Launcher.Core.vbproj.nuget.g.props.
+2026-09-19T12:24:52.5291171Z          Generating MSBuild file D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\obj\Launcher.Core.vbproj.nuget.g.targets.
+2026-09-19T12:24:52.5292514Z          Generating MSBuild file D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\obj\Launcher.App.vbproj.nuget.g.targets.
+2026-09-19T12:24:52.5294356Z          Writing assets file to disk. Path: D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\obj\project.assets.json
+2026-09-19T12:24:52.5295325Z          Writing assets file to disk. Path: D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\obj\project.assets.json
+2026-09-19T12:24:52.8760247Z          Restored D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\Launcher.Core.vbproj (in 602 ms).
+2026-09-19T12:24:52.8761330Z          Restored D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\Launcher.App.vbproj (in 602 ms).
+2026-09-19T12:24:53.3540652Z            GET https://api.nuget.org/v3-flatcontainer/mstest.testadapter/index.json
+2026-09-19T12:24:53.3543445Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json
+2026-09-19T12:24:53.3544527Z            GET https://api.nuget.org/v3-flatcontainer/mstest.testframework/index.json
+2026-09-19T12:24:53.3590067Z            OK https://api.nuget.org/v3-flatcontainer/mstest.testadapter/index.json 5ms
+2026-09-19T12:24:53.3669707Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json 13ms
+2026-09-19T12:24:53.3685634Z            OK https://api.nuget.org/v3-flatcontainer/mstest.testframework/index.json 14ms
+2026-09-19T12:24:53.4196515Z            GET https://api.nuget.org/v3-flatcontainer/mstest.testadapter/4.4.1/mstest.testadapter.4.4.1.nupkg
+2026-09-19T12:24:53.4197811Z            GET https://api.nuget.org/v3-flatcontainer/mstest.testframework/4.4.1/mstest.testframework.4.4.1.nupkg
+2026-09-19T12:24:53.4199006Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/18.10.1/microsoft.net.test.sdk.18.10.1.nupkg
+2026-09-19T12:24:53.4239902Z            OK https://api.nuget.org/v3-flatcontainer/mstest.testframework/4.4.1/mstest.testframework.4.4.1.nupkg 4ms
+2026-09-19T12:24:53.4242623Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/18.10.1/microsoft.net.test.sdk.18.10.1.nupkg 4ms
+2026-09-19T12:24:53.4243695Z            OK https://api.nuget.org/v3-flatcontainer/mstest.testadapter/4.4.1/mstest.testadapter.4.4.1.nupkg 4ms
+2026-09-19T12:24:53.4698036Z            GET https://api.nuget.org/v3-flatcontainer/mstest.analyzers/index.json
+2026-09-19T12:24:53.4700355Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.testing.extensions.telemetry/index.json
+2026-09-19T12:24:53.4701534Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.testing.extensions.trxreport.abstractions/index.json
+2026-09-19T12:24:53.4745513Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.testing.extensions.telemetry/index.json 4ms
+2026-09-19T12:24:53.4746870Z            OK https://api.nuget.org/v3-flatcontainer/mstest.analyzers/index.json 4ms
+2026-09-19T12:24:53.4771748Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.testing.extensions.trxreport.abstractions/index.json 7ms
+2026-09-19T12:24:53.4773033Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.codecoverage/index.json
+2026-09-19T12:24:53.4804662Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.codecoverage/index.json 3ms
+2026-09-19T12:24:53.4809473Z            GET https://api.nuget.org/v3-flatcontainer/mstest.analyzers/4.4.1/mstest.analyzers.4.4.1.nupkg
+2026-09-19T12:24:53.4811787Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.testing.platform.msbuild/index.json
+2026-09-19T12:24:53.4824424Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.testing.extensions.telemetry/2.4.1/microsoft.testing.extensions.telemetry.2.4.1.nupkg
+2026-09-19T12:24:53.4827751Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.testing.extensions.trxreport.abstractions/2.4.1/microsoft.testing.extensions.trxreport.abstractions.2.4.1.nupkg
+2026-09-19T12:24:53.4843226Z            OK https://api.nuget.org/v3-flatcontainer/mstest.analyzers/4.4.1/mstest.analyzers.4.4.1.nupkg 3ms
+2026-09-19T12:24:53.4848573Z            GET https://api.nuget.org/v3-flatcontainer/system.memory/index.json
+2026-09-19T12:24:53.4888224Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.codecoverage/18.10.1/microsoft.codecoverage.18.10.1.nupkg
+2026-09-19T12:24:53.4897277Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.testing.platform.msbuild/index.json 3ms
+2026-09-19T12:24:53.4898938Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.testing.platform.msbuild/2.4.1/microsoft.testing.platform.msbuild.2.4.1.nupkg
+2026-09-19T12:24:53.4901826Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.testing.extensions.telemetry/2.4.1/microsoft.testing.extensions.telemetry.2.4.1.nupkg 6ms
+2026-09-19T12:24:53.4915585Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.testing.platform.msbuild/2.4.1/microsoft.testing.platform.msbuild.2.4.1.nupkg 3ms
+2026-09-19T12:24:53.5132915Z            GET https://api.nuget.org/v3-flatcontainer/system.threading.tasks.extensions/index.json
+2026-09-19T12:24:53.5134715Z            OK https://api.nuget.org/v3-flatcontainer/system.memory/index.json 21ms
+2026-09-19T12:24:53.5136757Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.codecoverage/18.10.1/microsoft.codecoverage.18.10.1.nupkg 22ms
+2026-09-19T12:24:53.5138969Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.testing.extensions.trxreport.abstractions/2.4.1/microsoft.testing.extensions.trxreport.abstractions.2.4.1.nupkg 23ms
+2026-09-19T12:24:53.5140635Z            GET https://api.nuget.org/v3-flatcontainer/system.memory/4.6.3/system.memory.4.6.3.nupkg
+2026-09-19T12:24:53.5141472Z            OK https://api.nuget.org/v3-flatcontainer/system.memory/4.6.3/system.memory.4.6.3.nupkg 3ms
+2026-09-19T12:24:53.5217404Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.objectmodel/index.json
+2026-09-19T12:24:53.5229490Z            OK https://api.nuget.org/v3-flatcontainer/system.threading.tasks.extensions/index.json 21ms
+2026-09-19T12:24:53.5243103Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.objectmodel/index.json 5ms
+2026-09-19T12:24:53.5255508Z            GET https://api.nuget.org/v3-flatcontainer/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg
+2026-09-19T12:24:53.5269281Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.objectmodel/18.9.0/microsoft.testplatform.objectmodel.18.9.0.nupkg
+2026-09-19T12:24:53.5352203Z            OK https://api.nuget.org/v3-flatcontainer/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg 8ms
+2026-09-19T12:24:53.5358034Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.objectmodel/18.9.0/microsoft.testplatform.objectmodel.18.9.0.nupkg 6ms
+2026-09-19T12:24:53.6570900Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.testing.platform/index.json
+2026-09-19T12:24:53.6572779Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.applicationinsights/index.json
+2026-09-19T12:24:53.6616838Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.applicationinsights/index.json 4ms
+2026-09-19T12:24:53.6638684Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.testing.platform/index.json 6ms
+2026-09-19T12:24:53.6724443Z            GET https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/index.json
+2026-09-19T12:24:53.6817889Z            OK https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/index.json 9ms
+2026-09-19T12:24:53.6971746Z            GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json
+2026-09-19T12:24:53.6990170Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.applicationinsights/2.23.0/microsoft.applicationinsights.2.23.0.nupkg
+2026-09-19T12:24:53.7001808Z            GET https://api.nuget.org/v3-flatcontainer/microsoft.testing.platform/2.4.1/microsoft.testing.platform.2.4.1.nupkg
+2026-09-19T12:24:53.7014912Z            GET https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/6.1.2/system.runtime.compilerservices.unsafe.6.1.2.nupkg
+2026-09-19T12:24:53.7021109Z            GET https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/4.5.3/system.runtime.compilerservices.unsafe.4.5.3.nupkg
+2026-09-19T12:24:53.7029534Z            GET https://api.nuget.org/v3-flatcontainer/system.valuetuple/index.json
+2026-09-19T12:24:53.7034384Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.testing.platform/2.4.1/microsoft.testing.platform.2.4.1.nupkg 3ms
+2026-09-19T12:24:53.7046525Z            OK https://api.nuget.org/v3-flatcontainer/microsoft.applicationinsights/2.23.0/microsoft.applicationinsights.2.23.0.nupkg 5ms
+2026-09-19T12:24:53.7051782Z            OK https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/6.1.2/system.runtime.compilerservices.unsafe.6.1.2.nupkg 3ms
+2026-09-19T12:24:53.7056031Z            OK https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/4.5.3/system.runtime.compilerservices.unsafe.4.5.3.nupkg 3ms
+2026-09-19T12:24:53.7089755Z            GET https://api.nuget.org/v3-flatcontainer/system.collections.immutable/index.json
+2026-09-19T12:24:53.7108958Z            OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json 13ms
+2026-09-19T12:24:53.7112457Z            OK https://api.nuget.org/v3-flatcontainer/system.valuetuple/index.json 8ms
+2026-09-19T12:24:53.7139594Z            OK https://api.nuget.org/v3-flatcontainer/system.collections.immutable/index.json 4ms
+2026-09-19T12:24:53.7145943Z            GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg
+2026-09-19T12:24:53.7157214Z            GET https://api.nuget.org/v3-flatcontainer/system.valuetuple/4.5.0/system.valuetuple.4.5.0.nupkg
+2026-09-19T12:24:53.7172143Z            GET https://api.nuget.org/v3-flatcontainer/system.collections.immutable/10.0.0/system.collections.immutable.10.0.0.nupkg
+2026-09-19T12:24:53.7189236Z            OK https://api.nuget.org/v3-flatcontainer/system.valuetuple/4.5.0/system.valuetuple.4.5.0.nupkg 3ms
+2026-09-19T12:24:53.7214769Z            OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg 6ms
+2026-09-19T12:24:53.7225776Z            OK https://api.nuget.org/v3-flatcontainer/system.collections.immutable/10.0.0/system.collections.immutable.10.0.0.nupkg 5ms
+2026-09-19T12:24:53.7280160Z            GET https://api.nuget.org/v3-flatcontainer/system.buffers/index.json
+2026-09-19T12:24:53.7327757Z            GET https://api.nuget.org/v3-flatcontainer/system.reflection.metadata/index.json
+2026-09-19T12:24:53.7328795Z            OK https://api.nuget.org/v3-flatcontainer/system.buffers/index.json 4ms
+2026-09-19T12:24:53.7396524Z            OK https://api.nuget.org/v3-flatcontainer/system.reflection.metadata/index.json 6ms
+2026-09-19T12:24:53.7432009Z            GET https://api.nuget.org/v3-flatcontainer/system.buffers/4.6.1/system.buffers.4.6.1.nupkg
+2026-09-19T12:24:53.7433027Z            GET https://api.nuget.org/v3-flatcontainer/system.numerics.vectors/index.json
+2026-09-19T12:24:53.7440104Z            GET https://api.nuget.org/v3-flatcontainer/system.reflection.metadata/8.0.0/system.reflection.metadata.8.0.0.nupkg
+2026-09-19T12:24:53.7453815Z            OK https://api.nuget.org/v3-flatcontainer/system.buffers/4.6.1/system.buffers.4.6.1.nupkg 3ms
+2026-09-19T12:24:53.7498719Z            OK https://api.nuget.org/v3-flatcontainer/system.numerics.vectors/index.json 7ms
+2026-09-19T12:24:53.7513156Z            OK https://api.nuget.org/v3-flatcontainer/system.reflection.metadata/8.0.0/system.reflection.metadata.8.0.0.nupkg 6ms
+2026-09-19T12:24:53.7560730Z            GET https://api.nuget.org/v3-flatcontainer/system.numerics.vectors/4.6.1/system.numerics.vectors.4.6.1.nupkg
+2026-09-19T12:24:53.7594293Z            OK https://api.nuget.org/v3-flatcontainer/system.numerics.vectors/4.6.1/system.numerics.vectors.4.6.1.nupkg 3ms
+2026-09-19T12:24:53.7745809Z            GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/5.0.0/system.diagnostics.diagnosticsource.5.0.0.nupkg
+2026-09-19T12:24:53.7750203Z            GET https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg
+2026-09-19T12:24:53.7751265Z            GET https://api.nuget.org/v3-flatcontainer/system.memory/4.5.4/system.memory.4.5.4.nupkg
+2026-09-19T12:24:53.7795005Z            GET https://api.nuget.org/v3-flatcontainer/system.collections.immutable/8.0.0/system.collections.immutable.8.0.0.nupkg
+2026-09-19T12:24:53.7800090Z            OK https://api.nuget.org/v3-flatcontainer/system.memory/4.5.4/system.memory.4.5.4.nupkg 4ms
+2026-09-19T12:24:53.7808375Z            GET https://api.nuget.org/v3-flatcontainer/system.memory/4.5.5/system.memory.4.5.5.nupkg
+2026-09-19T12:24:53.7811226Z            OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/5.0.0/system.diagnostics.diagnosticsource.5.0.0.nupkg 4ms
+2026-09-19T12:24:53.7814665Z            OK https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg 4ms
+2026-09-19T12:24:53.7836817Z            OK https://api.nuget.org/v3-flatcontainer/system.collections.immutable/8.0.0/system.collections.immutable.8.0.0.nupkg 4ms
+2026-09-19T12:24:53.7850011Z            OK https://api.nuget.org/v3-flatcontainer/system.memory/4.5.5/system.memory.4.5.5.nupkg 5ms
+2026-09-19T12:24:54.8111974Z          Installed System.Numerics.Vectors 4.6.1 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.numerics.vectors\4.6.1 with content hash sQxefTnhagrhoq2ReR0D/6K0zJcr9Hrd6kikeXsA1I8kOCboTavcUC4r7TSfpKFeE163uMuxZcyfO1mGO3EN8Q==.
+2026-09-19T12:24:54.9197615Z          Installed System.Memory 4.6.3 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.memory\4.6.3 with content hash qdcDOgnFZY40+Q9876JUHnlHu7bosOHX8XISRoH94fwk6hgaeQGSgfZd8srWRZNt5bV9ZW2TljcegDNxsf+96A==.
+2026-09-19T12:24:54.9820549Z          Installed System.Memory 4.5.4 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.memory\4.5.4 with content hash 1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==.
+2026-09-19T12:24:54.9888854Z          Installed System.Buffers 4.6.1 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.buffers\4.6.1 with content hash N8GXpmiLMtljq7gwvyS+1QvKT/W2J8sNAvx+HVg4NGmsG/H+2k/y9QI23auLJRterrzCiDH+IWAw4V/GPwsMlw==.
+2026-09-19T12:24:55.2985913Z          Installed System.Diagnostics.DiagnosticSource 5.0.0 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.diagnostics.diagnosticsource\5.0.0 with content hash tCQTzPsGZh/A9LhhA6zrqCRV4hOHsK90/G7q3Khxmn6tnB1PuNU0cRaKANP2AWcF9bn0zsuOoZOSrHuJk6oNBA==.
+2026-09-19T12:24:55.4657594Z          Installed System.ValueTuple 4.5.0 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.valuetuple\4.5.0 with content hash okurQJO6NRE/apDIP23ajJ0hpiNmJ+f0BwOlB/cSqTLQlw5upkf+5+96+iG2Jw40G1fCVCyPz/FhIABUjMR+RQ==.
+2026-09-19T12:24:55.6001304Z          Installed Microsoft.NET.Test.Sdk 18.10.1 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\microsoft.net.test.sdk\18.10.1 with content hash SxCFvJE/2ltUQgCgv6+Ixagohw4sZc9hM7Wid2foaNM7paBscktoHLoRDz91fW8wbHG87Rg9Ku59/8PXumqUrA==.
+2026-09-19T12:24:55.9890947Z          Installed System.Runtime.CompilerServices.Unsafe 6.0.0 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.runtime.compilerservices.unsafe\6.0.0 with content hash /iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==.
+2026-09-19T12:24:56.0562986Z          Installed Microsoft.Testing.Extensions.Telemetry 2.4.1 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\microsoft.testing.extensions.telemetry\2.4.1 with content hash C+bq5ydHrBNCDXjvFtRa1/JcAS2Wq2dpXOnzy/TFYC8qb1dDEgB1XhQayBaYE/5BKviikByHb7mth8P+qJaOJw==.
+2026-09-19T12:24:56.4897529Z          Installed Microsoft.Testing.Extensions.TrxReport.Abstractions 2.4.1 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\microsoft.testing.extensions.trxreport.abstractions\2.4.1 with content hash tDxLLic2IfeChbyo8oeGZj/eBdFpPe3Dp80hUoIOefSCqqMHbsob+lX1TfFWV75PJCPouxj2zz0zzPHZxiM4nQ==.
+2026-09-19T12:24:56.6415428Z          Installed System.Collections.Immutable 8.0.0 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.collections.immutable\8.0.0 with content hash AurL6Y5BA1WotzlEvVaIDpqzpIPvYnnldxru8oXJU2yFxFUy3+pNXjXd1ymO+RA0rq0+590Q8gaz2l3Sr7fmqg==.
+2026-09-19T12:24:57.0892773Z          Installed Microsoft.CodeCoverage 18.10.1 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\microsoft.codecoverage\18.10.1 with content hash tV7tCyp/t+DuwQugLkCeUN7NBFFB4fEGRPr0gkMQ2nQgAvQQjmGlZZi1dsLzbyoe/A0mbnKybmkIh8qhT9p4Zw==.
+2026-09-19T12:24:57.1832488Z          Installed System.Memory 4.5.5 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.memory\4.5.5 with content hash XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==.
+2026-09-19T12:24:57.3005560Z          Installed System.Runtime.CompilerServices.Unsafe 6.1.2 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.runtime.compilerservices.unsafe\6.1.2 with content hash 2hBr6zdbIBTDE3EhK7NSVNdX58uTK6iHW/P/Axmm9sl1xoGSLqDvMtpecn226TNwHByFokYwJmt/aQQNlO5CRw==.
+2026-09-19T12:24:57.5408383Z          Installed System.Reflection.Metadata 8.0.0 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.reflection.metadata\8.0.0 with content hash ptvgrFh7PvWI8bcVqG5rsA/weWM09EnthFHR5SCnS6IN+P4mj6rE1lBDC4U8HL9/57htKAqy4KQ3bBj84cfYyQ==.
+2026-09-19T12:24:57.8067633Z          Installed Microsoft.TestPlatform.ObjectModel 18.9.0 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\microsoft.testplatform.objectmodel\18.9.0 with content hash Fz/qXC52VXXopzHj7v2reCKcCqSxkTDCkEDfkNAH0vni/7qK/KLMiEYtRmnUanxO2F2g2zZZ60qCpxF0AF7URA==.
+2026-09-19T12:24:58.2250973Z          Installed System.Runtime.CompilerServices.Unsafe 4.5.3 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.3 with content hash 3TIsJhD1EiiT0w2CcDMN/iSSwnNnsrnbzeVHSKkaEgV85txMprmuO+Yq2AdSbeVGcg28pdNDTPK87tJhX7VFHw==.
+2026-09-19T12:24:58.3561653Z          Installed MSTest.Analyzers 4.4.1 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\mstest.analyzers\4.4.1 with content hash Ccu+MKGCRCV2OauQjEIT0XeyP+AtOYyQNuhVI+yPUjJD6RQGi+lOkE8xz+gqe1IK3KiosQy7ZS+022tUTO4K1w==.
+2026-09-19T12:24:58.6781794Z          Installed MSTest.TestAdapter 4.4.1 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\mstest.testadapter\4.4.1 with content hash UmeQj3uPc+R/Vu1pEHN6ZLQAsUlzCx9BkGH6HOQLILQFjjsFELettj1naMKJhKYyouSXiZum3shUeAF4QqyixA==.
+2026-09-19T12:24:59.0675516Z          Installed System.Threading.Tasks.Extensions 4.5.4 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.threading.tasks.extensions\4.5.4 with content hash zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==.
+2026-09-19T12:24:59.3204373Z          Installed Microsoft.ApplicationInsights 2.23.0 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\microsoft.applicationinsights\2.23.0 with content hash nWArUZTdU7iqZLycLKWe0TDms48KKGE6pONH2terYNa8REXiqixrMOkf1sk5DHGMaUTqONU2YkS4SAXBhLStgw==.
+2026-09-19T12:24:59.3396833Z          Installed System.Diagnostics.DiagnosticSource 6.0.0 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.diagnostics.diagnosticsource\6.0.0 with content hash frQDfv0rl209cKm1lnwTgFPzNigy2EKk1BS3uAvHvlBVKe5cymGyHO+Sj+NLv5VF/AhHsqPIUUwya5oV4CHMUw==.
+2026-09-19T12:24:59.6175479Z          Installed System.Collections.Immutable 10.0.0 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\system.collections.immutable\10.0.0 with content hash BHo23kBFvTFQa0tuDFXcb3Q8QInjm1Xrq+If/xuV8iMlxOOsylsa6sgRK25n5dlcMk8G2f0O/t5AdjZrdVBOXA==.
+2026-09-19T12:25:00.1640872Z          Installed MSTest.TestFramework 4.4.1 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\mstest.testframework\4.4.1 with content hash zHyMqhT9A1qihb0S6qyFFEYze0GWC6FzkdoFqUYlSg89fIs/A/KQBWlkM0JNb43fKDskQU2OuFNKZFuXzRCvYg==.
+2026-09-19T12:25:00.3250920Z          Installed Microsoft.Testing.Platform 2.4.1 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\microsoft.testing.platform\2.4.1 with content hash 3nW9NyhN1BnHRF994DCOOUQCqVA9pDT+gPpbuhI/xUntZnGnXO4ySovKxFlFuoT/48pnI74LK/DeKVlve1L3VQ==.
+2026-09-19T12:25:00.4151137Z          Installed Microsoft.Testing.Platform.MSBuild 2.4.1 from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\microsoft.testing.platform.msbuild\2.4.1 with content hash K4W2hAATe9wA1xt4oEZWmUsnQqnLD5H18NXKsm81xclf9PI4AHieb3DxJpE/2uA6Xl9DtjpLXif7/9Sn8Y2y7w==.
+2026-09-19T12:25:00.4371933Z            GET https://api.nuget.org/v3/vulnerabilities/index.json
+2026-09-19T12:25:00.4416697Z            OK https://api.nuget.org/v3/vulnerabilities/index.json 4ms
+2026-09-19T12:25:00.4623772Z            GET https://api.nuget.org/v3-vulnerabilities/2026.09.17.23.30.27/vulnerability.base.json
+2026-09-19T12:25:00.4633506Z            GET https://api.nuget.org/v3-vulnerabilities/2026.09.17.23.30.27/2026.09.18.17.30.30/vulnerability.update.json
+2026-09-19T12:25:00.4671773Z            OK https://api.nuget.org/v3-vulnerabilities/2026.09.17.23.30.27/2026.09.18.17.30.30/vulnerability.update.json 3ms
+2026-09-19T12:25:00.4702821Z            OK https://api.nuget.org/v3-vulnerabilities/2026.09.17.23.30.27/vulnerability.base.json 7ms
+2026-09-19T12:25:00.6247966Z          Generating MSBuild file D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\obj\Launcher.Core.Tests.vbproj.nuget.g.props.
+2026-09-19T12:25:00.6251493Z          Generating MSBuild file D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\obj\Launcher.Core.Tests.vbproj.nuget.g.targets.
+2026-09-19T12:25:00.6254004Z          Writing assets file to disk. Path: D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\obj\project.assets.json
+2026-09-19T12:25:00.6299985Z          Restored D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj (in 8.72 sec).
+2026-09-19T12:25:00.6320821Z          
+2026-09-19T12:25:00.6321213Z          NuGet Config files used:
+2026-09-19T12:25:00.6321868Z              C:\Users\runneradmin\AppData\Roaming\NuGet\NuGet.Config
+2026-09-19T12:25:00.6322834Z              C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.FallbackLocation.config
+2026-09-19T12:25:00.6323908Z              C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.Offline.config
+2026-09-19T12:25:00.6324539Z          
+2026-09-19T12:25:00.6325012Z          Feeds used:
+2026-09-19T12:25:00.6325419Z              https://api.nuget.org/v3/index.json
+2026-09-19T12:25:00.6326018Z              C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
+2026-09-19T12:25:00.6326623Z              C:\Program Files\dotnet\library-packs
+2026-09-19T12:25:00.6327781Z          
+2026-09-19T12:25:00.6328388Z          Installed:
+2026-09-19T12:25:00.6378187Z              26 package(s) to D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj
+2026-09-19T12:25:00.6388429Z      1>Done Building Project "D:\a\wpf-launcher5\wpf-launcher5\Launcher.sln" (Restore target(s)).
+2026-09-19T12:25:00.6500691Z    1:2>Project "D:\a\wpf-launcher5\wpf-launcher5\Launcher.sln" on node 1 (default targets).
+2026-09-19T12:25:00.6501302Z      1>ValidateSolutionConfiguration:
+2026-09-19T12:25:00.6501600Z          Building solution configuration "Release|x64".
+2026-09-19T12:25:00.7741178Z    1:2>Project "D:\a\wpf-launcher5\wpf-launcher5\Launcher.sln" (1:2) is building "D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj" (3:6) on node 3 (default targets).
+2026-09-19T12:25:00.7742863Z      3>CopyMSTestV2Resources:
+2026-09-19T12:25:00.7743447Z        Skipping target "CopyMSTestV2Resources" because it has no outputs.
+2026-09-19T12:25:00.7915813Z        PrepareForBuild:
+2026-09-19T12:25:00.7918317Z          Creating directory "bin\x64\Release\net462\".
+2026-09-19T12:25:00.7925649Z    1:2>Project "D:\a\wpf-launcher5\wpf-launcher5\Launcher.sln" (1:2) is building "D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\Launcher.Core.vbproj" (4:8) on node 2 (default targets).
+2026-09-19T12:25:00.7952895Z      4>PrepareForBuild:
+2026-09-19T12:25:00.7963119Z          Creating directory "bin\x64\Release\net462\".
+2026-09-19T12:25:00.7965998Z      3>PrepareForBuild:
+2026-09-19T12:25:00.7992795Z          Creating directory "obj\x64\Release\net462\".
+2026-09-19T12:25:00.7993898Z      4>PrepareForBuild:
+2026-09-19T12:25:00.7995978Z          Creating directory "obj\x64\Release\net462\".
+2026-09-19T12:25:00.8664016Z    1:2>Project "D:\a\wpf-launcher5\wpf-launcher5\Launcher.sln" (1:2) is building "D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\Launcher.App.vbproj" (2:6) on node 1 (default targets).
+2026-09-19T12:25:00.8666223Z      2>PrepareForBuild:
+2026-09-19T12:25:00.8667569Z          Creating directory "bin\x64\Release\net462\".
+2026-09-19T12:25:00.8686668Z          Creating directory "obj\x64\Release\net462\".
+2026-09-19T12:25:01.5526474Z      4>_GenerateSourceLinkFile:
+2026-09-19T12:25:01.5527168Z          Updating Source Link file 'obj\x64\Release\net462\Launcher.Core.sourcelink.json'.
+2026-09-19T12:25:01.5570135Z        CoreCompile:
+2026-09-19T12:25:01.5570495Z          Setting DOTNET_ROOT to 'C:\Program Files\dotnet'
+2026-09-19T12:25:01.5914659Z          C:\Program Files\dotnet\sdk\10.0.112\Roslyn\binfx\..\bincore\vbc.exe /noconfig /imports:Microsoft.VisualBasic,System,System.Collections,System.Collections.Generic,System.Data,System.Diagnostics,System.Linq,System.Xml.Linq,System.Threading.Tasks /optioncompare:Binary /optionexplicit+ /optionstrict+ /nowarn:41999,42016,42017,42018,42019,42020,42021,42022,42032,42036 /optioninfer+ /nostdlib /errorreport:prompt /platform:x64 /rootnamespace:Launcher.Core /sdkpath:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2" /highentropyva+ /define:"CONFIG=\"Release\",TRACE=-1,PLATFORM=\"x64\",RELEASE=-1,NETFRAMEWORK=-1,NET462=-1,NET20_OR_GREATER=-1,NET30_OR_GREATER=-1,NET35_OR_GREATER=-1,NET40_OR_GREATER=-1,NET45_OR_GREATER=-1,NET451_OR_GREATER=-1,NET452_OR_GREATER=-1,NET46_OR_GREATER=-1,NET461_OR_GREATER=-1,NET462_OR_GREATER=-1" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Core.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Data.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Drawing.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.IO.Compression.FileSystem.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Numerics.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Runtime.Serialization.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Xml.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Xml.Linq.dll" /debug- /debug:portable /filealign:512 /optimize+ /out:obj\x64\Release\net462\Launcher.Core.dll /subsystemversion:6.00 /resource:..\..\schemas\launcher-config.xsd,Launcher.Core.launcher-config.xsd /target:library /warnaserror- /utf8output /deterministic+ /sourcelink:obj\x64\Release\net462\Launcher.Core.sourcelink.json /langversion:15.5 /analyzerconfig:obj\x64\Release\net462\Launcher.Core.GeneratedMSBuildEditorConfig.editorconfig LauncherProduct.vb Models\LauncherConfiguration.vb Services\ConfigurationException.vb Services\ConfigurationLoadResult.vb Services\ConfigurationPathResolver.vb Services\FileLogger.vb Services\LauncherConfigurationLoader.vb Services\ProgramLauncher.vb ViewModels\LauncherViewModel.vb "obj\x64\Release\net462\.NETFramework,Version=v4.6.2.AssemblyAttributes.vb" obj\x64\Release\net462\Launcher.Core.AssemblyInfo.vb /warnaserror+:NU1605
+2026-09-19T12:25:01.5927621Z          Compilation request Launcher.Core (net462), PathToTool=C:\Program Files\dotnet\sdk\10.0.112\Roslyn\binfx\..\bincore\vbc.exe
+2026-09-19T12:25:01.5937310Z          CommandLine = ' /noconfig'
+2026-09-19T12:25:01.5953110Z          BuildResponseFile = '/imports:Microsoft.VisualBasic,System,System.Collections,System.Collections.Generic,System.Data,System.Diagnostics,System.Linq,System.Xml.Linq,System.Threading.Tasks /optioncompare:Binary /optionexplicit+ /optionstrict+ /nowarn:41999,42016,42017,42018,42019,42020,42021,42022,42032,42036 /optioninfer+ /nostdlib /errorreport:prompt /platform:x64 /rootnamespace:Launcher.Core /sdkpath:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2" /highentropyva+ /define:"CONFIG=\"Release\",TRACE=-1,PLATFORM=\"x64\",RELEASE=-1,NETFRAMEWORK=-1,NET462=-1,NET20_OR_GREATER=-1,NET30_OR_GREATER=-1,NET35_OR_GREATER=-1,NET40_OR_GREATER=-1,NET45_OR_GREATER=-1,NET451_OR_GREATER=-1,NET452_OR_GREATER=-1,NET46_OR_GREATER=-1,NET461_OR_GREATER=-1,NET462_OR_GREATER=-1" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Core.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Data.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Drawing.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.IO.Compression.FileSystem.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Numerics.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Runtime.Serialization.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Xml.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Xml.Linq.dll" /debug- /debug:portable /filealign:512 /optimize+ /out:obj\x64\Release\net462\Launcher.Core.dll /subsystemversion:6.00 /resource:..\..\schemas\launcher-config.xsd,Launcher.Core.launcher-config.xsd /target:library /warnaserror- /utf8output /deterministic+ /sourcelink:obj\x64\Release\net462\Launcher.Core.sourcelink.json /langversion:15.5 /analyzerconfig:obj\x64\Release\net462\Launcher.Core.GeneratedMSBuildEditorConfig.editorconfig LauncherProduct.vb Models\LauncherConfiguration.vb Services\ConfigurationException.vb Services\ConfigurationLoadResult.vb Services\ConfigurationPathResolver.vb Services\FileLogger.vb Services\LauncherConfigurationLoader.vb Services\ProgramLauncher.vb ViewModels\LauncherViewModel.vb "obj\x64\Release\net462\.NETFramework,Version=v4.6.2.AssemblyAttributes.vb" obj\x64\Release\net462\Launcher.Core.AssemblyInfo.vb /warnaserror+:NU1605'
+2026-09-19T12:25:01.6043287Z          Attempting to create process 'C:\Program Files\dotnet\sdk\10.0.112\Roslyn\binfx\..\bincore\VBCSCompiler.exe' "-pipename:DNwSopRP6HL5kbIxgzOeAPxyOM3dXaCGiudzVV121tc"
+2026-09-19T12:25:01.6146353Z          Setting DOTNET_ROOT to 'C:\Program Files\dotnet'
+2026-09-19T12:25:01.6365043Z          Successfully created process with process id 8016
+2026-09-19T12:25:01.6386546Z          Attempt to open named pipe 'DNwSopRP6HL5kbIxgzOeAPxyOM3dXaCGiudzVV121tc'
+2026-09-19T12:25:01.6391268Z          Attempt to connect named pipe 'DNwSopRP6HL5kbIxgzOeAPxyOM3dXaCGiudzVV121tc'
+2026-09-19T12:25:04.1330830Z          Named pipe 'DNwSopRP6HL5kbIxgzOeAPxyOM3dXaCGiudzVV121tc' connected
+2026-09-19T12:25:04.1358038Z          Begin writing request for Launcher.Core (net462)
+2026-09-19T12:25:04.1399200Z          End writing request for Launcher.Core (net462)
+2026-09-19T12:25:04.1402032Z          Begin reading response for Launcher.Core (net462)
+2026-09-19T12:25:08.5019072Z          End reading response for Launcher.Core (net462)
+2026-09-19T12:25:08.5085050Z          CompilerServer: server - server processed compilation - Launcher.Core (net462)
+2026-09-19T12:25:08.5439190Z        CopyFilesToOutputDirectory:
+2026-09-19T12:25:08.5440135Z          Copying file from "D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\obj\x64\Release\net462\Launcher.Core.dll" to "D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\bin\x64\Release\net462\Launcher.Core.dll".
+2026-09-19T12:25:08.5462831Z          Launcher.Core -> D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\bin\x64\Release\net462\Launcher.Core.dll
+2026-09-19T12:25:08.5477027Z          Copying file from "D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\obj\x64\Release\net462\Launcher.Core.pdb" to "D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\bin\x64\Release\net462\Launcher.Core.pdb".
+2026-09-19T12:25:08.5584168Z      4>Done Building Project "D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\Launcher.Core.vbproj" (default targets).
+2026-09-19T12:25:09.1609083Z      2>C:\Program Files\dotnet\sdk\10.0.112\Sdks\Microsoft.NET.Sdk.WindowsDesktop\targets\Microsoft.WinFX.targets(211,9): error MC1000: Unknown build error, 'Could not find assembly 'mscorlib, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'. Either explicitly load this assembly using a method such as LoadFromAssemblyPath() or use a MetadataAssemblyResolver that returns a valid assembly.'  [D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\Launcher.App.vbproj]
+2026-09-19T12:25:09.1692126Z      2>Done Building Project "D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\Launcher.App.vbproj" (default targets) -- FAILED.
+2026-09-19T12:25:10.0843998Z      3>_GenerateSourceLinkFile:
+2026-09-19T12:25:10.0846632Z          Updating Source Link file 'obj\x64\Release\net462\Launcher.Core.Tests.sourcelink.json'.
+2026-09-19T12:25:10.0947461Z        CoreCompile:
+2026-09-19T12:25:10.0947822Z          Setting DOTNET_ROOT to 'C:\Program Files\dotnet'
+2026-09-19T12:25:10.1186199Z          C:\Program Files\dotnet\sdk\10.0.112\Roslyn\binfx\..\bincore\vbc.exe /noconfig /imports:Microsoft.VisualBasic,System,System.Collections,System.Collections.Generic,System.Data,System.Diagnostics,System.Linq,System.Xml.Linq,System.Threading.Tasks /optioncompare:Binary /optionexplicit+ /optionstrict+ /nowarn:41999,42016,42017,42018,42019,42020,42021,42022,42032,42036 /optioninfer+ /nostdlib /errorreport:prompt /platform:x64 /rootnamespace:Launcher.Core.Tests /sdkpath:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2" /highentropyva+ /define:"CONFIG=\"Release\",TRACE=-1,PLATFORM=\"x64\",RELEASE=-1,NETFRAMEWORK=-1,NET462=-1,NET20_OR_GREATER=-1,NET30_OR_GREATER=-1,NET35_OR_GREATER=-1,NET40_OR_GREATER=-1,NET45_OR_GREATER=-1,NET451_OR_GREATER=-1,NET452_OR_GREATER=-1,NET46_OR_GREATER=-1,NET461_OR_GREATER=-1,NET462_OR_GREATER=-1" /reference:D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\bin\x64\Release\net462\Launcher.Core.dll,C:\Users\runneradmin\.nuget\packages\microsoft.applicationinsights\2.23.0\lib\net46\Microsoft.ApplicationInsights.dll,"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Microsoft.CSharp.dll",C:\Users\runneradmin\.nuget\packages\microsoft.testing.platform.msbuild\2.4.1\lib\netstandard2.0\Microsoft.Testing.Extensions.MSBuild.dll,C:\Users\runneradmin\.nuget\packages\microsoft.testing.extensions.telemetry\2.4.1\lib\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.dll,C:\Users\runneradmin\.nuget\packages\microsoft.testing.extensions.trxreport.abstractions\2.4.1\lib\netstandard2.0\Microsoft.Testing.Extensions.TrxReport.Abstractions.dll,C:\Users\runneradmin\.nuget\packages\microsoft.testing.platform\2.4.1\lib\netstandard2.0\Microsoft.Testing.Platform.dll,C:\Users\runneradmin\.nuget\packages\microsoft.testplatform.objectmodel\18.9.0\lib\net462\Microsoft.TestPlatform.CoreUtilities.dll,C:\Users\runneradmin\.nuget\packages\microsoft.testplatform.objectmodel\18.9.0\lib\net462\Microsoft.TestPlatform.PlatformAbstractions.dll,C:\Users\runneradmin\.nuget\packages\microsoft.codecoverage\18.10.1\lib\net462\Microsoft.VisualStudio.CodeCoverage.Shim.dll,C:\Users\runneradmin\.nuget\packages\microsoft.testplatform.objectmodel\18.9.0\lib\net462\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\Microsoft.Win32.Primitives.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\mscorlib.dll",C:\Users\runneradmin\.nuget\packages\mstest.testadapter\4.4.1\buildTransitive\net462\MSTest.TestAdapter.dll,C:\Users\runneradmin\.nuget\packages\mstest.testframework\4.4.1\lib\net462\MSTest.TestFramework.dll,C:\Users\runneradmin\.nuget\packages\mstest.testframework\4.4.1\lib\net462\MSTest.TestFramework.Extensions.dll,C:\Users\runneradmin\.nuget\packages\mstest.testadapter\4.4.1\buildTransitive\net462\MSTestAdapter.PlatformServices.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\netfx.force.conflicts.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\netstandard.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.AppContext.dll",C:\Users\runneradmin\.nuget\packages\system.buffers\4.6.1\lib\net462\System.Buffers.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Collections.Concurrent.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Collections.dll",C:\Users\runneradmin\.nuget\packages\system.collections.immutable\10.0.0\lib\net462\System.Collections.Immutable.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Collections.NonGeneric.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Collections.Specialized.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ComponentModel.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ComponentModel.EventBasedAsync.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ComponentModel.Primitives.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ComponentModel.TypeConverter.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Configuration.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Console.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Core.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Data.Common.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Data.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Contracts.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Debug.dll",C:\Users\runneradmin\.nuget\packages\system.diagnostics.diagnosticsource\6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.FileVersionInfo.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Process.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.StackTrace.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.TextWriterTraceListener.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Tools.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.TraceSource.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Tracing.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Drawing.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Drawing.Primitives.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Dynamic.Runtime.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Globalization.Calendars.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Globalization.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Globalization.Extensions.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.Compression.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.IO.Compression.FileSystem.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.Compression.ZipFile.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.FileSystem.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.FileSystem.DriveInfo.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.FileSystem.Primitives.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.FileSystem.Watcher.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.IsolatedStorage.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.MemoryMappedFiles.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.Pipes.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.UnmanagedMemoryStream.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Linq.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Linq.Expressions.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Linq.Parallel.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Linq.Queryable.dll",C:\Users\runneradmin\.nuget\packages\system.memory\4.6.3\lib\net462\System.Memory.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Http.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.NameResolution.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.NetworkInformation.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Ping.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Primitives.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Requests.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Security.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Sockets.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.WebHeaderCollection.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.WebSockets.Client.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.WebSockets.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Numerics.dll",C:\Users\runneradmin\.nuget\packages\system.numerics.vectors\4.6.1\lib\net462\System.Numerics.Vectors.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ObjectModel.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Reflection.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Reflection.Extensions.dll",C:\Users\runneradmin\.nuget\packages\system.reflection.metadata\8.0.0\lib\net462\System.Reflection.Metadata.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Reflection.Primitives.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Resources.Reader.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Resources.ResourceManager.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Resources.Writer.dll",C:\Users\runneradmin\.nuget\packages\system.runtime.compilerservices.unsafe\6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.CompilerServices.VisualC.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Extensions.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Handles.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.InteropServices.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net462\lib\System.Runtime.InteropServices.RuntimeInformation.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Numerics.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Runtime.Serialization.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Formatters.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Json.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Primitives.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Xml.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Claims.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.Algorithms.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.Csp.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.Encoding.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.Primitives.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.X509Certificates.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Principal.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.SecureString.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Text.Encoding.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Text.Encoding.Extensions.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Text.RegularExpressions.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Overlapped.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Tasks.dll",C:\Users\runneradmin\.nuget\packages\system.threading.tasks.extensions\4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Tasks.Parallel.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Thread.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.ThreadPool.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Timer.dll",C:\Users\runneradmin\.nuget\packages\system.valuetuple\4.5.0\ref\net461\System.ValueTuple.dll,"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Xml.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Xml.Linq.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.ReaderWriter.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XDocument.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XmlDocument.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XmlSerializer.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XPath.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XPath.XDocument.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ComponentModel.Annotations.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.Reflection.Emit.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.Reflection.Emit.ILGeneration.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.Reflection.Emit.Lightweight.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.Runtime.InteropServices.WindowsRuntime.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.Duplex.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.Http.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.NetTcp.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.Primitives.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.Security.dll" /debug- /debug:portable /filealign:512 /optimize+ /out:obj\x64\Release\net462\Launcher.Core.Tests.dll /subsystemversion:6.00 /target:library /warnaserror- /utf8output /deterministic+ /sourcelink:obj\x64\Release\net462\Launcher.Core.Tests.sourcelink.json /langversion:15.5 /analyzerconfig:C:\Users\runneradmin\.nuget\packages\mstest.analyzers\4.4.1\buildTransitive\..\globalconfigs\mstest-default.globalconfig /analyzerconfig:obj\x64\Release\net462\Launcher.Core.Tests.GeneratedMSBuildEditorConfig.editorconfig /analyzer:C:\Users\runneradmin\.nuget\packages\mstest.analyzers\4.4.1\analyzers\dotnet\vb\MSTest.Analyzers.dll LauncherConfigurationLoaderTests.vb LauncherProductTests.vb LauncherViewModelTests.vb ProgramLauncherTests.vb "obj\x64\Release\net462\.NETFramework,Version=v4.6.2.AssemblyAttributes.vb" obj\x64\Release\net462\Launcher.Core.Tests.AssemblyInfo.vb /warnaserror+:NU1605
+2026-09-19T12:25:10.1301261Z          Compilation request Launcher.Core.Tests (net462), PathToTool=C:\Program Files\dotnet\sdk\10.0.112\Roslyn\binfx\..\bincore\vbc.exe
+2026-09-19T12:25:10.1301814Z          CommandLine = ' /noconfig'
+2026-09-19T12:25:10.1451108Z          BuildResponseFile = '/imports:Microsoft.VisualBasic,System,System.Collections,System.Collections.Generic,System.Data,System.Diagnostics,System.Linq,System.Xml.Linq,System.Threading.Tasks /optioncompare:Binary /optionexplicit+ /optionstrict+ /nowarn:41999,42016,42017,42018,42019,42020,42021,42022,42032,42036 /optioninfer+ /nostdlib /errorreport:prompt /platform:x64 /rootnamespace:Launcher.Core.Tests /sdkpath:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2" /highentropyva+ /define:"CONFIG=\"Release\",TRACE=-1,PLATFORM=\"x64\",RELEASE=-1,NETFRAMEWORK=-1,NET462=-1,NET20_OR_GREATER=-1,NET30_OR_GREATER=-1,NET35_OR_GREATER=-1,NET40_OR_GREATER=-1,NET45_OR_GREATER=-1,NET451_OR_GREATER=-1,NET452_OR_GREATER=-1,NET46_OR_GREATER=-1,NET461_OR_GREATER=-1,NET462_OR_GREATER=-1" /reference:D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\bin\x64\Release\net462\Launcher.Core.dll,C:\Users\runneradmin\.nuget\packages\microsoft.applicationinsights\2.23.0\lib\net46\Microsoft.ApplicationInsights.dll,"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Microsoft.CSharp.dll",C:\Users\runneradmin\.nuget\packages\microsoft.testing.platform.msbuild\2.4.1\lib\netstandard2.0\Microsoft.Testing.Extensions.MSBuild.dll,C:\Users\runneradmin\.nuget\packages\microsoft.testing.extensions.telemetry\2.4.1\lib\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.dll,C:\Users\runneradmin\.nuget\packages\microsoft.testing.extensions.trxreport.abstractions\2.4.1\lib\netstandard2.0\Microsoft.Testing.Extensions.TrxReport.Abstractions.dll,C:\Users\runneradmin\.nuget\packages\microsoft.testing.platform\2.4.1\lib\netstandard2.0\Microsoft.Testing.Platform.dll,C:\Users\runneradmin\.nuget\packages\microsoft.testplatform.objectmodel\18.9.0\lib\net462\Microsoft.TestPlatform.CoreUtilities.dll,C:\Users\runneradmin\.nuget\packages\microsoft.testplatform.objectmodel\18.9.0\lib\net462\Microsoft.TestPlatform.PlatformAbstractions.dll,C:\Users\runneradmin\.nuget\packages\microsoft.codecoverage\18.10.1\lib\net462\Microsoft.VisualStudio.CodeCoverage.Shim.dll,C:\Users\runneradmin\.nuget\packages\microsoft.testplatform.objectmodel\18.9.0\lib\net462\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\Microsoft.Win32.Primitives.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\mscorlib.dll",C:\Users\runneradmin\.nuget\packages\mstest.testadapter\4.4.1\buildTransitive\net462\MSTest.TestAdapter.dll,C:\Users\runneradmin\.nuget\packages\mstest.testframework\4.4.1\lib\net462\MSTest.TestFramework.dll,C:\Users\runneradmin\.nuget\packages\mstest.testframework\4.4.1\lib\net462\MSTest.TestFramework.Extensions.dll,C:\Users\runneradmin\.nuget\packages\mstest.testadapter\4.4.1\buildTransitive\net462\MSTestAdapter.PlatformServices.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\netfx.force.conflicts.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\netstandard.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.AppContext.dll",C:\Users\runneradmin\.nuget\packages\system.buffers\4.6.1\lib\net462\System.Buffers.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Collections.Concurrent.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Collections.dll",C:\Users\runneradmin\.nuget\packages\system.collections.immutable\10.0.0\lib\net462\System.Collections.Immutable.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Collections.NonGeneric.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Collections.Specialized.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ComponentModel.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ComponentModel.EventBasedAsync.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ComponentModel.Primitives.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ComponentModel.TypeConverter.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Configuration.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Console.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Core.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Data.Common.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Data.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Contracts.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Debug.dll",C:\Users\runneradmin\.nuget\packages\system.diagnostics.diagnosticsource\6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.FileVersionInfo.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Process.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.StackTrace.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.TextWriterTraceListener.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Tools.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.TraceSource.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Tracing.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Drawing.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Drawing.Primitives.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Dynamic.Runtime.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Globalization.Calendars.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Globalization.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Globalization.Extensions.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.Compression.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.IO.Compression.FileSystem.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.Compression.ZipFile.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.FileSystem.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.FileSystem.DriveInfo.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.FileSystem.Primitives.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.FileSystem.Watcher.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.IsolatedStorage.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.MemoryMappedFiles.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.Pipes.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.UnmanagedMemoryStream.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Linq.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Linq.Expressions.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Linq.Parallel.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Linq.Queryable.dll",C:\Users\runneradmin\.nuget\packages\system.memory\4.6.3\lib\net462\System.Memory.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Http.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.NameResolution.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.NetworkInformation.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Ping.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Primitives.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Requests.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Security.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Sockets.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.WebHeaderCollection.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.WebSockets.Client.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.WebSockets.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Numerics.dll",C:\Users\runneradmin\.nuget\packages\system.numerics.vectors\4.6.1\lib\net462\System.Numerics.Vectors.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ObjectModel.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Reflection.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Reflection.Extensions.dll",C:\Users\runneradmin\.nuget\packages\system.reflection.metadata\8.0.0\lib\net462\System.Reflection.Metadata.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Reflection.Primitives.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Resources.Reader.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Resources.ResourceManager.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Resources.Writer.dll",C:\Users\runneradmin\.nuget\packages\system.runtime.compilerservices.unsafe\6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.CompilerServices.VisualC.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Extensions.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Handles.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.InteropServices.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net462\lib\System.Runtime.InteropServices.RuntimeInformation.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Numerics.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Runtime.Serialization.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Formatters.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Json.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Primitives.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Xml.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Claims.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.Algorithms.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.Csp.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.Encoding.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.Primitives.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.X509Certificates.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Principal.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.SecureString.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Text.Encoding.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Text.Encoding.Extensions.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Text.RegularExpressions.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Overlapped.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Tasks.dll",C:\Users\runneradmin\.nuget\packages\system.threading.tasks.extensions\4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll,"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Tasks.Parallel.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Thread.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.ThreadPool.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Timer.dll",C:\Users\runneradmin\.nuget\packages\system.valuetuple\4.5.0\ref\net461\System.ValueTuple.dll,"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Xml.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Xml.Linq.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.ReaderWriter.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XDocument.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XmlDocument.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XmlSerializer.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XPath.dll","C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XPath.XDocument.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ComponentModel.Annotations.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.Reflection.Emit.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.Reflection.Emit.ILGeneration.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.Reflection.Emit.Lightweight.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.Runtime.InteropServices.WindowsRuntime.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.Duplex.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.Http.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.NetTcp.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.Primitives.dll","C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.Security.dll" /debug- /debug:portable /filealign:512 /optimize+ /out:obj\x64\Release\net462\Launcher.Core.Tests.dll /subsystemversion:6.00 /target:library /warnaserror- /utf8output /deterministic+ /sourcelink:obj\x64\Release\net462\Launcher.Core.Tests.sourcelink.json /langversion:15.5 /analyzerconfig:C:\Users\runneradmin\.nuget\packages\mstest.analyzers\4.4.1\buildTransitive\..\globalconfigs\mstest-default.globalconfig /analyzerconfig:obj\x64\Release\net462\Launcher.Core.Tests.GeneratedMSBuildEditorConfig.editorconfig /analyzer:C:\Users\runneradmin\.nuget\packages\mstest.analyzers\4.4.1\analyzers\dotnet\vb\MSTest.Analyzers.dll LauncherConfigurationLoaderTests.vb LauncherProductTests.vb LauncherViewModelTests.vb ProgramLauncherTests.vb "obj\x64\Release\net462\.NETFramework,Version=v4.6.2.AssemblyAttributes.vb" obj\x64\Release\net462\Launcher.Core.Tests.AssemblyInfo.vb /warnaserror+:NU1605'
+2026-09-19T12:25:10.1526745Z          Attempt to open named pipe 'DNwSopRP6HL5kbIxgzOeAPxyOM3dXaCGiudzVV121tc'
+2026-09-19T12:25:10.1527252Z          Attempt to connect named pipe 'DNwSopRP6HL5kbIxgzOeAPxyOM3dXaCGiudzVV121tc'
+2026-09-19T12:25:10.1527733Z          Named pipe 'DNwSopRP6HL5kbIxgzOeAPxyOM3dXaCGiudzVV121tc' connected
+2026-09-19T12:25:10.1528140Z          Begin writing request for Launcher.Core.Tests (net462)
+2026-09-19T12:25:10.1528497Z          End writing request for Launcher.Core.Tests (net462)
+2026-09-19T12:25:10.1528856Z          Begin reading response for Launcher.Core.Tests (net462)
+2026-09-19T12:25:10.4050572Z          End reading response for Launcher.Core.Tests (net462)
+2026-09-19T12:25:10.4182845Z      3>D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\ProgramLauncherTests.vb(45,9): error BC30035: Syntax error. [D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj]
+2026-09-19T12:25:10.4188910Z      3>D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\ProgramLauncherTests.vb(64,19): error BC30198: ')' expected. [D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj]
+2026-09-19T12:25:10.4199514Z      3>D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\ProgramLauncherTests.vb(64,19): error BC30035: Syntax error. [D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj]
+2026-09-19T12:25:10.4205214Z      3>D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\ProgramLauncherTests.vb(82,19): error BC30198: ')' expected. [D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj]
+2026-09-19T12:25:10.4209809Z      3>D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\ProgramLauncherTests.vb(82,19): error BC30035: Syntax error. [D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj]
+2026-09-19T12:25:10.4215092Z      3>D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\ProgramLauncherTests.vb(99,19): error BC30198: ')' expected. [D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj]
+2026-09-19T12:25:10.4218001Z      3>D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\ProgramLauncherTests.vb(99,19): error BC30035: Syntax error. [D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj]
+2026-09-19T12:25:10.4219101Z          CompilerServer: server - server processed compilation - Launcher.Core.Tests (net462)
+2026-09-19T12:25:10.4278455Z      3>Done Building Project "D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj" (default targets) -- FAILED.
+2026-09-19T12:25:10.4291042Z      1>Done Building Project "D:\a\wpf-launcher5\wpf-launcher5\Launcher.sln" (default targets) -- FAILED.
+2026-09-19T12:25:10.4446480Z Deferred Messages
+2026-09-19T12:25:10.4449802Z          
+2026-09-19T12:25:10.4450244Z          Detailed Build Summary
+2026-09-19T12:25:10.4450694Z          ======================
+2026-09-19T12:25:10.4450996Z              
+2026-09-19T12:25:10.4451377Z          
+2026-09-19T12:25:10.4452124Z          ============================== Build Hierarchy (IDs represent configurations) =====================================================
+2026-09-19T12:25:10.4453060Z          Id                  : Exclusive Time   Total Time   Path (Targets)
+2026-09-19T12:25:10.4453950Z          -----------------------------------------------------------------------------------------------------------------------------------
+2026-09-19T12:25:10.4455007Z          0                   : 10.169s           17.235s       D:\a\wpf-launcher5\wpf-launcher5\Launcher.sln (Restore) 
+2026-09-19T12:25:10.4456096Z          | 1                 : 6.577s           6.577s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\Launcher.App.vbproj (_IsProjectRestoreSupported) 
+2026-09-19T12:25:10.4457810Z          | 3                 : 6.358s           6.358s       D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj (_IsProjectRestoreSupported) 
+2026-09-19T12:25:10.4459480Z          | 2                 : 6.358s           6.358s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\Launcher.Core.vbproj (_IsProjectRestoreSupported) 
+2026-09-19T12:25:10.4461194Z          | 6                 : 0.016s           0.016s       D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj (_GenerateRestoreProjectPathWalk) 
+2026-09-19T12:25:10.4462907Z          | 5                 : 0.000s           0.000s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\Launcher.Core.vbproj (_GenerateRestoreProjectPathWalk) 
+2026-09-19T12:25:10.4464532Z          | 4                 : 0.016s           0.016s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\Launcher.App.vbproj (_GenerateRestoreProjectPathWalk) 
+2026-09-19T12:25:10.4466135Z          | . 5               : 0.000s           0.000s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\Launcher.Core.vbproj (_GenerateRestoreProjectPathWalk) 
+2026-09-19T12:25:10.4467891Z          | 10                : 0.348s           0.348s       D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj (_GenerateRestoreGraphProjectEntry) 
+2026-09-19T12:25:10.4469650Z          | 9                 : 0.348s           0.348s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\Launcher.App.vbproj (_GenerateRestoreGraphProjectEntry) 
+2026-09-19T12:25:10.4471186Z          | 8                 : 0.348s           0.348s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\Launcher.Core.vbproj (_GenerateRestoreGraphProjectEntry) 
+2026-09-19T12:25:10.4472932Z          | 13                : 0.047s           0.047s       D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj (_GenerateProjectRestoreGraph) 
+2026-09-19T12:25:10.4474645Z          | 12                : 0.031s           0.031s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\Launcher.App.vbproj (_GenerateProjectRestoreGraph) 
+2026-09-19T12:25:10.4476255Z          . 11                : 0.047s           0.047s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\Launcher.Core.vbproj (_GenerateProjectRestoreGraph) 
+2026-09-19T12:25:10.4477254Z          
+2026-09-19T12:25:10.4477951Z          ============================== Node Utilization (IDs represent configurations) ====================================================
+2026-09-19T12:25:10.4478896Z          Timestamp:            1       2       3        Duration   Cumulative
+2026-09-19T12:25:10.4479827Z          -----------------------------------------------------------------------------------------------------------------------------------
+2026-09-19T12:25:10.4480801Z          639254174833765088:   0       x       x        0.603s     0.603s ............
+2026-09-19T12:25:10.4481758Z          639254174839798968:   1       x       x        0.281s     0.885s .....
+2026-09-19T12:25:10.4482508Z          639254174842611471:   |       2       3        6.327s     7.212s + (scale 1:100)
+2026-09-19T12:25:10.4483255Z          639254174905882816:   x       |       |        0.047s     7.259s 
+2026-09-19T12:25:10.4483939Z          639254174906351376:   0       x       x        0.016s     7.274s 
+2026-09-19T12:25:10.4484589Z          639254174906507618:   4       5       6        0.016s     7.290s 
+2026-09-19T12:25:10.4485244Z          639254174906663931:   0       |       x        0.016s     7.306s 
+2026-09-19T12:25:10.4485948Z          639254174906820236:   9       8       10       0.348s     7.653s ......
+2026-09-19T12:25:10.4486626Z          639254174910299267:   12      11      13       0.031s     7.685s 
+2026-09-19T12:25:10.4487284Z          639254174910611659:   x       |       |        0.016s     7.700s 
+2026-09-19T12:25:10.4488008Z          639254174910767924:   0       x       x        9.550s     17.250s + (scale 1:100)
+2026-09-19T12:25:10.4489188Z          -----------------------------------------------------------------------------------------------------------------------------------
+2026-09-19T12:25:10.4490171Z          Utilization:          99.6    41.4    41.5     Average Utilization: 60.8
+2026-09-19T12:25:10.4490735Z          
+2026-09-19T12:25:10.4491035Z          Detailed Build Summary
+2026-09-19T12:25:10.4491404Z          ======================
+2026-09-19T12:25:10.4491759Z              
+2026-09-19T12:25:10.4492016Z          
+2026-09-19T12:25:10.4492721Z          ============================== Build Hierarchy (IDs represent configurations) =====================================================
+2026-09-19T12:25:10.4493649Z          Id                  : Exclusive Time   Total Time   Path (Targets)
+2026-09-19T12:25:10.4494553Z          -----------------------------------------------------------------------------------------------------------------------------------
+2026-09-19T12:25:10.4495625Z          14                  : 0.000s           9.777s       D:\a\wpf-launcher5\wpf-launcher5\Launcher.sln () 
+2026-09-19T12:25:10.4496758Z          | 17                : 2.315s           9.777s       D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj () 
+2026-09-19T12:25:10.4498224Z          | | 18              : 0.000s           0.000s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\Launcher.Core.vbproj (GetTargetFrameworks) 
+2026-09-19T12:25:10.4499754Z          | . 22              : 0.016s           0.016s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\Launcher.Core.vbproj (InitializeSourceRootMappedPaths) 
+2026-09-19T12:25:10.4501135Z          | 16                : 7.915s           7.915s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\Launcher.Core.vbproj () 
+2026-09-19T12:25:10.4502266Z          . 15                : 1.047s           8.525s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\Launcher.App.vbproj () 
+2026-09-19T12:25:10.4503594Z          | | 18              : 0.000s           0.000s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\Launcher.Core.vbproj (GetTargetFrameworks) 
+2026-09-19T12:25:10.4505998Z          | . 19              : 0.000s           0.000s       D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.Core\Launcher.Core.vbproj (GetNativeManifest) 
+2026-09-19T12:25:10.4507072Z          
+2026-09-19T12:25:10.4507867Z          ============================== Node Utilization (IDs represent configurations) ====================================================
+2026-09-19T12:25:10.4511460Z          Timestamp:            1       2       3        Duration   Cumulative
+2026-09-19T12:25:10.4512157Z          -----------------------------------------------------------------------------------------------------------------------------------
+2026-09-19T12:25:10.4512680Z          639254174833765088:   0       x       x        0.603s     0.603s ............
+2026-09-19T12:25:10.4513084Z          639254174839798968:   1       x       x        0.281s     0.885s .....
+2026-09-19T12:25:10.4513690Z          639254174842611471:   |       2       3        6.327s     7.212s + (scale 1:100)
+2026-09-19T12:25:10.4514078Z          639254174905882816:   x       |       |        0.047s     7.259s 
+2026-09-19T12:25:10.4514439Z          639254174906351376:   0       x       x        0.016s     7.274s 
+2026-09-19T12:25:10.4514785Z          639254174906507618:   4       5       6        0.016s     7.290s 
+2026-09-19T12:25:10.4515125Z          639254174906663931:   0       |       x        0.016s     7.306s 
+2026-09-19T12:25:10.4515496Z          639254174906820236:   9       8       10       0.348s     7.653s ......
+2026-09-19T12:25:10.4515865Z          639254174910299267:   12      11      13       0.031s     7.685s 
+2026-09-19T12:25:10.4516217Z          639254174910611659:   x       |       |        0.016s     7.700s 
+2026-09-19T12:25:10.4516597Z          639254174910767924:   0       x       x        9.550s     17.250s + (scale 1:100)
+2026-09-19T12:25:10.4517085Z          639254175006423345:   15      16      17       0.438s     17.703s ........
+2026-09-19T12:25:10.4517467Z          639254175010798364:   x       |       |        0.031s     17.735s 
+2026-09-19T12:25:10.4517847Z          639254175011110953:   x       |       x        7.447s     25.181s + (scale 1:100)
+2026-09-19T12:25:10.4518220Z          639254175085577248:   15      18      17       0.031s     25.212s 
+2026-09-19T12:25:10.4518585Z          639254175085889806:   |       19      |        0.579s     25.791s ...........
+2026-09-19T12:25:10.4518975Z          639254175091675735:   x       |       |        0.876s     26.667s .................
+2026-09-19T12:25:10.4519355Z          639254175100437979:   x       22      x        0.016s     26.683s 
+2026-09-19T12:25:10.4519729Z          639254175100594214:   x       x       17       0.360s     27.043s .......
+2026-09-19T12:25:10.4520103Z          639254175100594214:   14      x       x        0.360s     27.403s .......
+2026-09-19T12:25:10.4520602Z          -----------------------------------------------------------------------------------------------------------------------------------
+2026-09-19T12:25:10.4521096Z          Utilization:          67.4    56.2    34.8     Average Utilization: 52.8
+2026-09-19T12:25:10.4521342Z 
+2026-09-19T12:25:10.4521415Z Build FAILED.
+2026-09-19T12:25:10.4521520Z 
+2026-09-19T12:25:10.4521702Z        "D:\a\wpf-launcher5\wpf-launcher5\Launcher.sln" (default target) (1:2) ->
+2026-09-19T12:25:10.4522228Z        "D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\Launcher.App.vbproj" (default target) (2:6) ->
+2026-09-19T12:25:10.4522670Z        (MarkupCompilePass1 target) -> 
+2026-09-19T12:25:10.4524220Z          C:\Program Files\dotnet\sdk\10.0.112\Sdks\Microsoft.NET.Sdk.WindowsDesktop\targets\Microsoft.WinFX.targets(211,9): error MC1000: Unknown build error, 'Could not find assembly 'mscorlib, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'. Either explicitly load this assembly using a method such as LoadFromAssemblyPath() or use a MetadataAssemblyResolver that returns a valid assembly.'  [D:\a\wpf-launcher5\wpf-launcher5\src\Launcher.App\Launcher.App.vbproj]
+2026-09-19T12:25:10.4525706Z 
+2026-09-19T12:25:10.4525710Z 
+2026-09-19T12:25:10.4525884Z        "D:\a\wpf-launcher5\wpf-launcher5\Launcher.sln" (default target) (1:2) ->
+2026-09-19T12:25:10.4526452Z        "D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj" (default target) (3:6) ->
+2026-09-19T12:25:10.4526930Z        (CoreCompile target) -> 
+2026-09-19T12:25:10.4527677Z          D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\ProgramLauncherTests.vb(45,9): error BC30035: Syntax error. [D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj]
+2026-09-19T12:25:10.4528944Z          D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\ProgramLauncherTests.vb(64,19): error BC30198: ')' expected. [D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj]
+2026-09-19T12:25:10.4530276Z          D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\ProgramLauncherTests.vb(64,19): error BC30035: Syntax error. [D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj]
+2026-09-19T12:25:10.4531508Z          D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\ProgramLauncherTests.vb(82,19): error BC30198: ')' expected. [D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj]
+2026-09-19T12:25:10.4532748Z          D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\ProgramLauncherTests.vb(82,19): error BC30035: Syntax error. [D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj]
+2026-09-19T12:25:10.4533966Z          D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\ProgramLauncherTests.vb(99,19): error BC30198: ')' expected. [D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj]
+2026-09-19T12:25:10.4535267Z          D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\ProgramLauncherTests.vb(99,19): error BC30035: Syntax error. [D:\a\wpf-launcher5\wpf-launcher5\tests\Launcher.Core.Tests\Launcher.Core.Tests.vbproj]
+2026-09-19T12:25:10.4535934Z 
+2026-09-19T12:25:10.4536002Z     0 Warning(s)
+2026-09-19T12:25:10.4536174Z     8 Error(s)
+2026-09-19T12:25:10.4550462Z 
+2026-09-19T12:25:10.4550933Z Time Elapsed 00:00:27.96
+2026-09-19T12:25:10.7118830Z [31;1mException: [0mD:\a\_temp\5104bf0a-2aaa-49c8-a1f9-2111dbe315ea.ps1:15[0m
+2026-09-19T12:25:10.7119763Z [31;1m[0m[36;1mLine |[0m
+2026-09-19T12:25:10.7120728Z [31;1m[0m[36;1m[36;1m  15 | [0m   [36;1mthrow "UI スモークテスト用ビルドに失敗しました (exit code: $LASTEXITCODE)。"[0m
+2026-09-19T12:25:10.7121686Z [31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m     | [31;1m   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+2026-09-19T12:25:10.7122634Z [31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m[31;1m[31;1m[36;1m     | [31;1mUI スモークテスト用ビルドに失敗しました (exit code: 1)。[0m
+2026-09-19T12:25:10.7322940Z ##[error]Process completed with exit code 1.
+2026-09-19T12:25:10.7472306Z ##[group]Run $source = Join-Path $env:LOCALAPPDATA 'WpfLauncher\Logs'
+2026-09-19T12:25:10.7472895Z [36;1m$source = Join-Path $env:LOCALAPPDATA 'WpfLauncher\Logs'[0m
+2026-09-19T12:25:10.7473276Z [36;1m$destination = 'artifacts\ui-smoke\app-logs'[0m
+2026-09-19T12:25:10.7473674Z [36;1mNew-Item -ItemType Directory -Force $destination | Out-Null[0m
+2026-09-19T12:25:10.7474054Z [36;1mif (Test-Path -LiteralPath $source) {[0m
+2026-09-19T12:25:10.7474449Z [36;1m  Copy-Item -Path "$source\*" -Destination $destination -Recurse -Force[0m
+2026-09-19T12:25:10.7474815Z [36;1m} else {[0m
+2026-09-19T12:25:10.7475017Z [36;1m  '正常起動ではアプリログは生成されませんでした。' |[0m
+2026-09-19T12:25:10.7475360Z [36;1m    Set-Content -Path "$destination\README.txt" -Encoding utf8[0m
+2026-09-19T12:25:10.7475693Z [36;1m}[0m
+2026-09-19T12:25:10.7516666Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-19T12:25:10.7517013Z ##[endgroup]
+2026-09-19T12:25:11.0894003Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-09-19T12:25:11.0894533Z with:
+2026-09-19T12:25:11.0894735Z   name: ui-smoke-35442762187-1
+2026-09-19T12:25:11.0895101Z   path: artifacts/ui-smoke/**
 artifacts/logs/Launcher.UI.Release.x64.binlog
 
-2026-09-19T04:35:42.4375149Z   if-no-files-found: warn
-2026-09-19T04:35:42.4375369Z   retention-days: 14
-2026-09-19T04:35:42.4375579Z   compression-level: 6
-2026-09-19T04:35:42.4375777Z   overwrite: false
-2026-09-19T04:35:42.4375980Z   include-hidden-files: false
-2026-09-19T04:35:42.4376207Z   archive: true
-2026-09-19T04:35:42.4376390Z ##[endgroup]
-2026-09-19T04:35:42.6001715Z Multiple search paths detected. Calculating the least common ancestor of all paths
-2026-09-19T04:35:42.6005334Z The least common ancestor is D:\a\wpf-launcher5\wpf-launcher5\artifacts. This will be the root directory of the artifact
-2026-09-19T04:35:42.6016768Z ##[warning]No files were found with the provided path: artifacts/ui-smoke/**
-artifacts/logs/Launcher.UI.Release.x64.binlog. No artifacts will be uploaded.
-2026-09-19T04:35:42.6287151Z Post job cleanup.
-2026-09-19T04:35:42.8187910Z [command]"C:\Program Files\Git\bin\git.exe" version
-2026-09-19T04:35:42.8390697Z git version 2.55.0.windows.5
-2026-09-19T04:35:42.8447126Z Temporarily overriding HOME='D:\a\_temp\eb1ad713-bcb9-4943-b58b-fc345e0d34ce' before making global git config changes
-2026-09-19T04:35:42.8448077Z Adding repository directory to the temporary git global config as a safe directory
-2026-09-19T04:35:42.8457901Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wpf-launcher5\wpf-launcher5
-2026-09-19T04:35:42.8675090Z Removing SSH command configuration
-2026-09-19T04:35:42.8684518Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
-2026-09-19T04:35:42.8908093Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
-2026-09-19T04:35:43.3429194Z Removing HTTP extra header
-2026-09-19T04:35:43.3438594Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
-2026-09-19T04:35:43.3659969Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
-2026-09-19T04:35:43.8413021Z Removing includeIf entries pointing to credentials config files
-2026-09-19T04:35:43.8423761Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
-2026-09-19T04:35:43.8645973Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
-2026-09-19T04:35:44.3909738Z Cleaning up orphan processes
+2026-09-19T12:25:11.0895482Z   if-no-files-found: warn
+2026-09-19T12:25:11.0895701Z   retention-days: 14
+2026-09-19T12:25:11.0895955Z   compression-level: 6
+2026-09-19T12:25:11.0896170Z   overwrite: false
+2026-09-19T12:25:11.0896361Z   include-hidden-files: false
+2026-09-19T12:25:11.0896570Z   archive: true
+2026-09-19T12:25:11.0896747Z ##[endgroup]
+2026-09-19T12:25:11.2569876Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-09-19T12:25:11.2570933Z The least common ancestor is D:\a\wpf-launcher5\wpf-launcher5\artifacts. This will be the root directory of the artifact
+2026-09-19T12:25:11.2572235Z With the provided path, there will be 2 files uploaded
+2026-09-19T12:25:11.2576741Z Artifact name is valid!
+2026-09-19T12:25:11.2577892Z Root directory input is valid!
+2026-09-19T12:25:11.5368255Z Uploading artifact: ui-smoke-35442762187-1.zip
+2026-09-19T12:25:11.5410618Z Beginning upload of artifact content to blob storage
+2026-09-19T12:25:11.9308235Z Uploaded bytes 599789
+2026-09-19T12:25:11.9742693Z Finished uploading artifact content to blob storage!
+2026-09-19T12:25:11.9744011Z SHA256 digest of uploaded artifact is c99e6e53cb05b505b5f01409890be2db8242d926933100185e0ae6ac459759bc
+2026-09-19T12:25:11.9744948Z Finalizing artifact upload
+2026-09-19T12:25:12.2550103Z Artifact ui-smoke-35442762187-1 successfully finalized. Artifact ID 10583749424
+2026-09-19T12:25:12.2550987Z Artifact ui-smoke-35442762187-1 has been successfully uploaded! Final size is 599789 bytes. Artifact ID is 10583749424
+2026-09-19T12:25:12.2560459Z Artifact download URL: https://github.com/hn770123/wpf-launcher5/actions/runs/35442762187/artifacts/10583749424
+2026-09-19T12:25:12.2901701Z Post job cleanup.
+2026-09-19T12:25:12.4628700Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-09-19T12:25:12.4832323Z git version 2.55.0.windows.5
+2026-09-19T12:25:12.4883554Z Temporarily overriding HOME='D:\a\_temp\87a8cc9a-57c5-440e-9284-8a7dda281d63' before making global git config changes
+2026-09-19T12:25:12.4884768Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-19T12:25:12.4893725Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wpf-launcher5\wpf-launcher5
+2026-09-19T12:25:12.5125029Z Removing SSH command configuration
+2026-09-19T12:25:12.5135989Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-09-19T12:25:12.5415223Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-09-19T12:25:12.9528892Z Removing HTTP extra header
+2026-09-19T12:25:12.9538775Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-19T12:25:12.9771942Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-09-19T12:25:13.4712637Z Removing includeIf entries pointing to credentials config files
+2026-09-19T12:25:13.4723210Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-19T12:25:13.5020326Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-09-19T12:25:13.9717003Z Cleaning up orphan processes
+2026-09-19T12:25:13.9823414Z Terminate orphan process: pid (2080) (MSBuild)
+2026-09-19T12:25:13.9863289Z Terminate orphan process: pid (2852) (MSBuild)
+2026-09-19T12:25:14.0172730Z Terminate orphan process: pid (8016) (VBCSCompiler)
+2026-09-19T12:25:14.0312303Z Terminate orphan process: pid (5280) (conhost)
