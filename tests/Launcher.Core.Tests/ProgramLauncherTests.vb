@@ -41,8 +41,9 @@ Public Class ProgramLauncherTests
         File.WriteAllText(executable, String.Empty)
         Dim starter As New RecordingProcessStarter()
         Dim button As New ButtonDefinition("app", "アプリ", 1, executable, "--name A&B | echo", _temporaryDirectory, String.Empty, True)
+        Dim launcher As New ProgramLauncher(starter)
 
-        New ProgramLauncher(starter).Launch(button)
+        launcher.Launch(button)
 
         Assert.AreEqual(executable, starter.StartInfo.FileName)
         Assert.AreEqual("--name A&B | echo", starter.StartInfo.Arguments)
@@ -59,9 +60,10 @@ Public Class ProgramLauncherTests
         Dim starter As New RecordingProcessStarter()
         Dim button As New ButtonDefinition("app", "アプリ", 1, Path.Combine(_temporaryDirectory, "missing.exe"),
                                            String.Empty, String.Empty, String.Empty, True)
+        Dim launcher As New ProgramLauncher(starter)
 
         Dim exception As ProgramLaunchException = Assert.ThrowsException(Of ProgramLaunchException)(
-            Sub() New ProgramLauncher(starter).Launch(button))
+            Sub() launcher.Launch(button))
 
         StringAssert.Contains(exception.Message, "実行ファイルが見つかりません")
         Assert.AreEqual(0, starter.StartCount)
@@ -77,9 +79,10 @@ Public Class ProgramLauncherTests
         Dim starter As New RecordingProcessStarter()
         Dim button As New ButtonDefinition("app", "アプリ", 1, executable, String.Empty,
                                            Path.Combine(_temporaryDirectory, "missing"), String.Empty, True)
+        Dim launcher As New ProgramLauncher(starter)
 
         Dim exception As ProgramLaunchException = Assert.ThrowsException(Of ProgramLaunchException)(
-            Sub() New ProgramLauncher(starter).Launch(button))
+            Sub() launcher.Launch(button))
 
         StringAssert.Contains(exception.Message, "作業フォルダーが見つかりません")
         Assert.AreEqual(0, starter.StartCount)
@@ -94,9 +97,10 @@ Public Class ProgramLauncherTests
         File.WriteAllText(executable, String.Empty)
         Dim starter As New RecordingProcessStarter() With {.ExceptionToThrow = New UnauthorizedAccessException("denied")}
         Dim button As New ButtonDefinition("app", "アプリ", 1, executable, String.Empty, String.Empty, String.Empty, True)
+        Dim launcher As New ProgramLauncher(starter)
 
         Dim exception As ProgramLaunchException = Assert.ThrowsException(Of ProgramLaunchException)(
-            Sub() New ProgramLauncher(starter).Launch(button))
+            Sub() launcher.Launch(button))
 
         StringAssert.Contains(exception.Message, "権限がありません")
     End Sub
