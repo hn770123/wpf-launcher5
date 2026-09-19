@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ランチャー設定 version 1 の構造と必須値を定義します。 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:simpleType name="nonBlankString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:pattern value=".*\S.*" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="launcher">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="categories">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="category" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="button" minOccurs="1" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="id" type="nonBlankString" use="required" />
+                        <xs:attribute name="name" type="nonBlankString" use="required" />
+                        <xs:attribute name="order" type="xs:int" use="required" />
+                        <xs:attribute name="executable" type="nonBlankString" use="required" />
+                        <xs:attribute name="arguments" type="xs:string" use="optional" />
+                        <xs:attribute name="workingDirectory" type="nonBlankString" use="optional" />
+                        <xs:attribute name="image" type="nonBlankString" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="nonBlankString" use="required" />
+                  <xs:attribute name="name" type="nonBlankString" use="required" />
+                  <xs:attribute name="order" type="xs:int" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="title" type="nonBlankString" use="required" />
+      <xs:attribute name="version" use="required" fixed="1" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
