@@ -1,0 +1,130 @@
+# ci.yml
+# .NET Framework 4.6.2 の復元、ビルド、テスト、配布物作成を Windows 上で再現します。
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+# fork 由来の pull request でも読み取り以外の権限や秘密値を必要としません。
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: powershell
+
+jobs:
+  build-and-test:
+    name: Release build and test
+    runs-on: windows-2022
+    timeout-minutes: 30
+
+    steps:
+      - name: ソースを取得
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: 成果物フォルダーを準備
+        run: |
+          New-Item -ItemType Directory -Force artifacts/logs | Out-Null
+          New-Item -ItemType Directory -Force artifacts/test-results | Out-Null
+          New-Item -ItemType Directory -Force artifacts/package | Out-Null
+
+      - name: Windows とビルド環境を確認
+        run: |
+          Write-Host "ImageOS=$env:ImageOS"
+          Write-Host "ImageVersion=$env:ImageVersion"
+          Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion, OsBuildNumber
+
+          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          if (-not (Test-Path -LiteralPath $vswhere)) {
+            throw "vswhere.exe が見つかりません。"
+          }
+
+          $installation = & $vswhere -latest -products * -requires Microsoft.Component.MSBuild -format json |
+            ConvertFrom-Json
+          if (-not $installation) {
+            throw "MSBuild を含む Visual Studio が見つかりません。"
+          }
+
+          $targetingPack = & $vswhere -latest -products * `
+            -requires Microsoft.Net.Component.4.6.2.TargetingPack -format json | ConvertFrom-Json
+          if (-not $targetingPack) {
+            throw ".NET Framework 4.6.2 Targeting Pack が見つかりません。"
+          }
+
+          $msbuild = & $vswhere -latest -products * -requires Microsoft.Component.MSBuild `
+            -find 'MSBuild\**\Bin\MSBuild.exe' | Select-Object -First 1
+          if (-not $msbuild) {
+            throw "MSBuild.exe が見つかりません。"
+          }
+
+          "MSBUILD_PATH=$msbuild" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          & $msbuild -version
+          dotnet --info
+
+      - name: Release x64 を復元してビルド
+        run: |
+          & $env:MSBUILD_PATH Launcher.sln /restore /m `
+            /p:Configuration=Release /p:Platform=x64 `
+            /bl:artifacts/logs/Launcher.Release.x64.binlog
+          if ($LASTEXITCODE -ne 0) {
+            throw "Release x64 ビルドに失敗しました (exit code: $LASTEXITCODE)。"
+          }
+
+      - name: テストを実行
+        run: |
+          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          $vstest = & $vswhere -latest -products * `
+            -find 'Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe' |
+            Select-Object -First 1
+          if (-not $vstest) {
+            throw "vstest.console.exe が見つかりません。"
+          }
+
+          $testAssembly = 'tests\Launcher.Core.Tests\bin\x64\Release\net462\Launcher.Core.Tests.dll'
+          if (-not (Test-Path -LiteralPath $testAssembly)) {
+            throw "テスト DLL が見つかりません: $testAssembly"
+          }
+
+          & $vstest $testAssembly /Platform:x64 `
+            '/Logger:trx;LogFileName=Launcher.Core.Tests.trx' `
+            /ResultsDirectory:artifacts\test-results
+          if ($LASTEXITCODE -ne 0) {
+            throw "テストに失敗しました (exit code: $LASTEXITCODE)。"
+          }
+
+      - name: アプリ配布用 ZIP を作成
+        run: |
+          $output = 'src\Launcher.App\bin\x64\Release\net462'
+          if (-not (Test-Path -LiteralPath "$output\Launcher.App.exe")) {
+            throw "配布対象の Launcher.App.exe が見つかりません。"
+          }
+          Compress-Archive -Path "$output\*" `
+            -DestinationPath 'artifacts\package\Launcher.App-win-x64.zip' -Force
+
+      # always() により、ビルドやテストが失敗しても生成済みの診断物を回収します。
+      - name: テスト結果とバイナリログを保存
+        if: ${{ always() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ci-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            artifacts/logs/*.binlog
+            artifacts/test-results/**/*.trx
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: 配布 ZIP を保存
+        if: ${{ always() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: launcher-package-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/package/*.zip
+          if-no-files-found: warn
+          retention-days: 14
