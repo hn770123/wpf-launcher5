@@ -15,7 +15,9 @@ permissions:
 
 defaults:
   run:
-    shell: powershell
+    # Windows PowerShell 5.1 は BOM なし UTF-8 の一時スクリプトを誤読するため、
+    # UTF-8 を既定で扱う PowerShell 7 を使用します。
+    shell: pwsh
 
 jobs:
   build-and-test:
