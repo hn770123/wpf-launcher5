@@ -1,0 +1,252 @@
+﻿2026-09-19T04:35:30.6555086Z Current runner version: '2.337.0'
+2026-09-19T04:35:30.6581494Z ##[group]Runner Image Provisioner
+2026-09-19T04:35:30.6582392Z Hosted Compute Agent
+2026-09-19T04:35:30.6583060Z Version: 20260828.587
+2026-09-19T04:35:30.6583772Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-19T04:35:30.6584603Z Build Date: 2026-08-28T16:44:25Z
+2026-09-19T04:35:30.6585422Z Worker ID: {df9c720b-6ee3-4ba2-ae3e-6856e4637d95}
+2026-09-19T04:35:30.6586238Z Azure Region: eastus
+2026-09-19T04:35:30.6586805Z ##[endgroup]
+2026-09-19T04:35:30.6588266Z ##[group]Operating System
+2026-09-19T04:35:30.6588965Z Microsoft Windows Server 2022
+2026-09-19T04:35:30.6589668Z 10.0.20348
+2026-09-19T04:35:30.6590204Z Datacenter
+2026-09-19T04:35:30.6590723Z ##[endgroup]
+2026-09-19T04:35:30.6591305Z ##[group]Runner Image
+2026-09-19T04:35:30.6591940Z Image: windows-2022
+2026-09-19T04:35:30.6592526Z Version: 20260913.307.1
+2026-09-19T04:35:30.6594120Z Included Software: https://github.com/actions/runner-images/blob/win22/20260913.307/images/windows/Windows2022-Readme.md
+2026-09-19T04:35:30.6596023Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20260913.307
+2026-09-19T04:35:30.6597123Z ##[endgroup]
+2026-09-19T04:35:30.6598328Z ##[group]GITHUB_TOKEN Permissions
+2026-09-19T04:35:30.6600125Z Contents: read
+2026-09-19T04:35:30.6600727Z Metadata: read
+2026-09-19T04:35:30.6601347Z ##[endgroup]
+2026-09-19T04:35:30.6603268Z Secret source: Actions
+2026-09-19T04:35:30.6604227Z Cache mode: write
+2026-09-19T04:35:30.6604956Z Prepare workflow directory
+2026-09-19T04:35:30.6950841Z Prepare all required actions
+2026-09-19T04:35:30.6988776Z Getting action download info
+2026-09-19T04:35:30.8279310Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-09-19T04:35:30.9145937Z Download action repository 'actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a' (SHA:043fb46d1a93c77aae656e7c1c64a875d1fc6a0a)
+2026-09-19T04:35:31.1150716Z Complete job name: Release build and test
+2026-09-19T04:35:31.2503773Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-09-19T04:35:31.2504776Z with:
+2026-09-19T04:35:31.2505092Z   persist-credentials: false
+2026-09-19T04:35:31.2505480Z   repository: hn770123/wpf-launcher5
+2026-09-19T04:35:31.2508550Z   token: ***
+2026-09-19T04:35:31.2508860Z   ssh-strict: true
+2026-09-19T04:35:31.2509170Z   ssh-user: git
+2026-09-19T04:35:31.2509478Z   clean: true
+2026-09-19T04:35:31.2509793Z   sparse-checkout-cone-mode: true
+2026-09-19T04:35:31.2510170Z   fetch-depth: 1
+2026-09-19T04:35:31.2510474Z   fetch-tags: false
+2026-09-19T04:35:31.2510787Z   show-progress: true
+2026-09-19T04:35:31.2511100Z   lfs: false
+2026-09-19T04:35:31.2511390Z   submodules: false
+2026-09-19T04:35:31.2511704Z   set-safe-directory: true
+2026-09-19T04:35:31.2512065Z   allow-unsafe-pr-checkout: false
+2026-09-19T04:35:31.2512582Z ##[endgroup]
+2026-09-19T04:35:31.3662309Z Syncing repository: hn770123/wpf-launcher5
+2026-09-19T04:35:31.3663694Z ##[group]Getting Git version info
+2026-09-19T04:35:31.3664202Z Working directory is 'D:\a\wpf-launcher5\wpf-launcher5'
+2026-09-19T04:35:31.4345572Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-09-19T04:35:31.9006574Z git version 2.55.0.windows.5
+2026-09-19T04:35:31.9039190Z ##[endgroup]
+2026-09-19T04:35:31.9051885Z Temporarily overriding HOME='D:\a\_temp\19d4d5f8-b47b-42f7-a27e-fb71a5c00c24' before making global git config changes
+2026-09-19T04:35:31.9053379Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-19T04:35:31.9060138Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wpf-launcher5\wpf-launcher5
+2026-09-19T04:35:31.9576590Z Deleting the contents of 'D:\a\wpf-launcher5\wpf-launcher5'
+2026-09-19T04:35:31.9579743Z ##[group]Determining repository object format
+2026-09-19T04:35:31.9581102Z ##[endgroup]
+2026-09-19T04:35:31.9582092Z ##[group]Initializing the repository
+2026-09-19T04:35:31.9588623Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\wpf-launcher5\wpf-launcher5
+2026-09-19T04:35:32.0267462Z Initialized empty Git repository in D:/a/wpf-launcher5/wpf-launcher5/.git/
+2026-09-19T04:35:32.0298279Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/hn770123/wpf-launcher5
+2026-09-19T04:35:32.0726031Z ##[endgroup]
+2026-09-19T04:35:32.0727346Z ##[group]Disabling automatic garbage collection
+2026-09-19T04:35:32.0731940Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-09-19T04:35:32.0917080Z ##[endgroup]
+2026-09-19T04:35:32.0918763Z ##[group]Setting up auth
+2026-09-19T04:35:32.0920049Z Removing SSH command configuration
+2026-09-19T04:35:32.0926141Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-09-19T04:35:32.1105323Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-09-19T04:35:34.7808497Z Removing HTTP extra header
+2026-09-19T04:35:34.7816178Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-19T04:35:34.7999850Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-09-19T04:35:35.1911345Z Removing includeIf entries pointing to credentials config files
+2026-09-19T04:35:35.1919511Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-19T04:35:35.2098718Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-09-19T04:35:35.5847065Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-a4d963f7-f2fb-49dc-9323-673a6a0aa4da.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-09-19T04:35:35.6035355Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git.path D:\a\_temp\git-credentials-a4d963f7-f2fb-49dc-9323-673a6a0aa4da.config
+2026-09-19T04:35:35.6214094Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git/worktrees/*.path D:\a\_temp\git-credentials-a4d963f7-f2fb-49dc-9323-673a6a0aa4da.config
+2026-09-19T04:35:35.6436230Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-a4d963f7-f2fb-49dc-9323-673a6a0aa4da.config
+2026-09-19T04:35:35.6614796Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-a4d963f7-f2fb-49dc-9323-673a6a0aa4da.config
+2026-09-19T04:35:35.6793155Z ##[endgroup]
+2026-09-19T04:35:35.6793549Z ##[group]Fetching the repository
+2026-09-19T04:35:35.6805950Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +495056589884cde078f02d27be4ce0d24c491d9e:refs/remotes/origin/main
+2026-09-19T04:35:36.6239023Z From https://github.com/hn770123/wpf-launcher5
+2026-09-19T04:35:36.6240158Z  * [new ref]         495056589884cde078f02d27be4ce0d24c491d9e -> origin/main
+2026-09-19T04:35:36.6273966Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/main
+2026-09-19T04:35:36.6500232Z   origin/main
+2026-09-19T04:35:36.6530649Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/main
+2026-09-19T04:35:36.6733852Z 495056589884cde078f02d27be4ce0d24c491d9e
+2026-09-19T04:35:36.6752973Z ##[endgroup]
+2026-09-19T04:35:36.6753281Z ##[group]Determining the checkout info
+2026-09-19T04:35:36.6754892Z ##[endgroup]
+2026-09-19T04:35:36.6760649Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-09-19T04:35:36.7066648Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-09-19T04:35:36.7243710Z ##[group]Checking out the ref
+2026-09-19T04:35:36.7250252Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2026-09-19T04:35:36.7674959Z Switched to a new branch 'main'
+2026-09-19T04:35:36.7735490Z branch 'main' set up to track 'origin/main'.
+2026-09-19T04:35:36.7776285Z ##[endgroup]
+2026-09-19T04:35:36.8111231Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-09-19T04:35:36.8300252Z 495056589884cde078f02d27be4ce0d24c491d9e
+2026-09-19T04:35:36.8335042Z ##[group]Removing auth
+2026-09-19T04:35:36.8336203Z Removing SSH command configuration
+2026-09-19T04:35:36.8345255Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-09-19T04:35:36.8547651Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-09-19T04:35:37.2550179Z Removing HTTP extra header
+2026-09-19T04:35:37.2557231Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-19T04:35:37.2764043Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-09-19T04:35:37.6610493Z Removing includeIf entries pointing to credentials config files
+2026-09-19T04:35:37.6619446Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-19T04:35:37.6798141Z includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git.path
+2026-09-19T04:35:37.6798593Z includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git/worktrees/*.path
+2026-09-19T04:35:37.6799586Z includeif.gitdir:/github/workspace/.git.path
+2026-09-19T04:35:37.6800048Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-19T04:35:37.6832133Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git.path
+2026-09-19T04:35:37.7005496Z D:\a\_temp\git-credentials-a4d963f7-f2fb-49dc-9323-673a6a0aa4da.config
+2026-09-19T04:35:37.7037166Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git.path D\:\\a\\_temp\\git\-credentials\-a4d963f7\-f2fb\-49dc\-9323\-673a6a0aa4da\.config
+2026-09-19T04:35:37.7248793Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git/worktrees/*.path
+2026-09-19T04:35:37.7419231Z D:\a\_temp\git-credentials-a4d963f7-f2fb-49dc-9323-673a6a0aa4da.config
+2026-09-19T04:35:37.7451738Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/wpf-launcher5/wpf-launcher5/.git/worktrees/*.path D\:\\a\\_temp\\git\-credentials\-a4d963f7\-f2fb\-49dc\-9323\-673a6a0aa4da\.config
+2026-09-19T04:35:37.7650355Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-09-19T04:35:37.7812461Z /github/runner_temp/git-credentials-a4d963f7-f2fb-49dc-9323-673a6a0aa4da.config
+2026-09-19T04:35:37.7846053Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-a4d963f7\-f2fb\-49dc\-9323\-673a6a0aa4da\.config
+2026-09-19T04:35:37.8048109Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-19T04:35:37.8206959Z /github/runner_temp/git-credentials-a4d963f7-f2fb-49dc-9323-673a6a0aa4da.config
+2026-09-19T04:35:37.8233923Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-a4d963f7\-f2fb\-49dc\-9323\-673a6a0aa4da\.config
+2026-09-19T04:35:37.8420908Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-09-19T04:35:38.2227662Z Removing credentials config 'D:\a\_temp\git-credentials-a4d963f7-f2fb-49dc-9323-673a6a0aa4da.config'
+2026-09-19T04:35:38.2238574Z ##[endgroup]
+2026-09-19T04:35:38.2504805Z ##[group]Run New-Item -ItemType Directory -Force artifacts/logs | Out-Null
+2026-09-19T04:35:38.2505454Z [36;1mNew-Item -ItemType Directory -Force artifacts/logs | Out-Null[0m
+2026-09-19T04:35:38.2505992Z [36;1mNew-Item -ItemType Directory -Force artifacts/test-results | Out-Null[0m
+2026-09-19T04:35:38.2506369Z [36;1mNew-Item -ItemType Directory -Force artifacts/package | Out-Null[0m
+2026-09-19T04:35:38.2583110Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-09-19T04:35:38.2583453Z ##[endgroup]
+2026-09-19T04:35:42.8593996Z ##[group]Run Write-Host "ImageOS=$env:ImageOS"
+2026-09-19T04:35:42.8594356Z [36;1mWrite-Host "ImageOS=$env:ImageOS"[0m
+2026-09-19T04:35:42.8594608Z [36;1mWrite-Host "ImageVersion=$env:ImageVersion"[0m
+2026-09-19T04:35:42.8595001Z [36;1mGet-ComputerInfo | Select-Object WindowsProductName, WindowsVersion, OsBuildNumber[0m
+2026-09-19T04:35:42.8595347Z [36;1m[0m
+2026-09-19T04:35:42.8595638Z [36;1m$vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"[0m
+2026-09-19T04:35:42.8596001Z [36;1mif (-not (Test-Path -LiteralPath $vswhere)) {[0m
+2026-09-19T04:35:42.8596244Z [36;1m  throw "vswhere.exe が見つかりません。"[0m
+2026-09-19T04:35:42.8596434Z [36;1m}[0m
+2026-09-19T04:35:42.8596563Z [36;1m[0m
+2026-09-19T04:35:42.8596886Z [36;1m$installation = & $vswhere -latest -products * -requires Microsoft.Component.MSBuild -format json |[0m
+2026-09-19T04:35:42.8597289Z [36;1m  ConvertFrom-Json[0m
+2026-09-19T04:35:42.8597506Z [36;1mif (-not $installation) {[0m
+2026-09-19T04:35:42.8597726Z [36;1m  throw "MSBuild を含む Visual Studio が見つかりません。"[0m
+2026-09-19T04:35:42.8597938Z [36;1m}[0m
+2026-09-19T04:35:42.8598067Z [36;1m[0m
+2026-09-19T04:35:42.8598265Z [36;1m$targetingPack = & $vswhere -latest -products * `[0m
+2026-09-19T04:35:42.8598659Z [36;1m  -requires Microsoft.Net.Component.4.6.2.TargetingPack -format json | ConvertFrom-Json[0m
+2026-09-19T04:35:42.8599018Z [36;1mif (-not $targetingPack) {[0m
+2026-09-19T04:35:42.8599263Z [36;1m  throw ".NET Framework 4.6.2 Targeting Pack が見つかりません。"[0m
+2026-09-19T04:35:42.8599500Z [36;1m}[0m
+2026-09-19T04:35:42.8599626Z [36;1m[0m
+2026-09-19T04:35:42.8599883Z [36;1m$msbuild = & $vswhere -latest -products * -requires Microsoft.Component.MSBuild `[0m
+2026-09-19T04:35:42.8600271Z [36;1m  -find 'MSBuild\**\Bin\MSBuild.exe' | Select-Object -First 1[0m
+2026-09-19T04:35:42.8600536Z [36;1mif (-not $msbuild) {[0m
+2026-09-19T04:35:42.8600722Z [36;1m  throw "MSBuild.exe が見つかりません。"[0m
+2026-09-19T04:35:42.8600912Z [36;1m}[0m
+2026-09-19T04:35:42.8601038Z [36;1m[0m
+2026-09-19T04:35:42.8601313Z [36;1m"MSBUILD_PATH=$msbuild" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append[0m
+2026-09-19T04:35:42.8601642Z [36;1m& $msbuild -version[0m
+2026-09-19T04:35:42.8601814Z [36;1mdotnet --info[0m
+2026-09-19T04:35:42.8631604Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-09-19T04:35:42.8631930Z ##[endgroup]
+2026-09-19T04:35:43.2338928Z At D:\a\_temp\6764a2de-855c-4fd5-b4cc-8aa179ae5588.ps1:8 char:46
+2026-09-19T04:35:43.2339774Z +   throw "vswhere.exe ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚"
+2026-09-19T04:35:43.2340204Z +                                              ~~~~
+2026-09-19T04:35:43.2340555Z Unexpected token 'ã€‚"
+2026-09-19T04:35:43.2341139Z }
+2026-09-19T04:35:43.2341544Z $installation = & $vswhere -latest -products * -requires Microsoft.Component.MSBuild -format json |
+2026-09-19T04:35:43.2342076Z   ConvertFrom-Json
+2026-09-19T04:35:43.2342320Z if (-not $installation) {
+2026-09-19T04:35:43.2342761Z   throw "MSBuild ã‚’å«ã‚€' in expression or statement.
+2026-09-19T04:35:43.2343239Z At D:\a\_temp\6764a2de-855c-4fd5-b4cc-8aa179ae5588.ps1:29 char:23
+2026-09-19T04:35:43.2343724Z + ... ATH=$msbuild" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Ap ...
+2026-09-19T04:35:43.2344186Z +                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-09-19T04:35:43.2344557Z The string is missing the terminator: ".
+2026-09-19T04:35:43.2344978Z At D:\a\_temp\6764a2de-855c-4fd5-b4cc-8aa179ae5588.ps1:20 char:70
+2026-09-19T04:35:43.2345551Z + ... row ".NET Framework 4.6.2 Targeting Pack ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚"
+2026-09-19T04:35:43.2346010Z +                                                                      ~~~~
+2026-09-19T04:35:43.2346265Z Unexpected token 'ã€‚"
+2026-09-19T04:35:43.2346417Z }
+2026-09-19T04:35:43.2347804Z $msbuild = & $vswhere -latest -products * -requires Microsoft.Component.MSBuild `
+2026-09-19T04:35:43.2350850Z   -find 'MSBuild\**\Bin\MSBuild.exe' | Select-Object -First 1
+2026-09-19T04:35:43.2351274Z if (-not $msbuild) {
+2026-09-19T04:35:43.2351567Z   throw "MSBuild.exe ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚"
+2026-09-19T04:35:43.2351781Z }
+2026-09-19T04:35:43.2352034Z "MSBUILD_PATH=$msbuild" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+2026-09-19T04:35:43.2352340Z & $msbuild -version
+2026-09-19T04:35:43.2352496Z dotnet --info
+2026-09-19T04:35:43.2352817Z if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }' in expression or statement.
+2026-09-19T04:35:43.2353240Z At D:\a\_temp\6764a2de-855c-4fd5-b4cc-8aa179ae5588.ps1:19 char:26
+2026-09-19T04:35:43.2353487Z + if (-not $targetingPack) {
+2026-09-19T04:35:43.2353656Z +                          ~
+2026-09-19T04:35:43.2353881Z Missing closing '}' in statement block or type definition.
+2026-09-19T04:35:43.2354200Z     + CategoryInfo          : ParserError: (:) [], ParseException
+2026-09-19T04:35:43.2354465Z     + FullyQualifiedErrorId : UnexpectedToken
+2026-09-19T04:35:43.2354774Z  
+2026-09-19T04:35:43.2580167Z ##[error]Process completed with exit code 1.
+2026-09-19T04:35:43.2747971Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-09-19T04:35:43.2748333Z with:
+2026-09-19T04:35:43.2748495Z   name: ci-diagnostics-35421697674-1
+2026-09-19T04:35:43.2748782Z   path: artifacts/logs/*.binlog
+artifacts/test-results/**/*.trx
+
+2026-09-19T04:35:43.2749048Z   if-no-files-found: warn
+2026-09-19T04:35:43.2749215Z   retention-days: 14
+2026-09-19T04:35:43.2749371Z   compression-level: 6
+2026-09-19T04:35:43.2749528Z   overwrite: false
+2026-09-19T04:35:43.2749679Z   include-hidden-files: false
+2026-09-19T04:35:43.2749846Z   archive: true
+2026-09-19T04:35:43.2749983Z ##[endgroup]
+2026-09-19T04:35:43.4091671Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-09-19T04:35:43.4094435Z The least common ancestor is D:\a\wpf-launcher5\wpf-launcher5\artifacts. This will be the root directory of the artifact
+2026-09-19T04:35:43.4106495Z ##[warning]No files were found with the provided path: artifacts/logs/*.binlog
+artifacts/test-results/**/*.trx. No artifacts will be uploaded.
+2026-09-19T04:35:43.4296049Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-09-19T04:35:43.4296402Z with:
+2026-09-19T04:35:43.4296577Z   name: launcher-package-35421697674-1
+2026-09-19T04:35:43.4296791Z   path: artifacts/package/*.zip
+2026-09-19T04:35:43.4296986Z   if-no-files-found: warn
+2026-09-19T04:35:43.4297154Z   retention-days: 14
+2026-09-19T04:35:43.4297313Z   compression-level: 6
+2026-09-19T04:35:43.4297468Z   overwrite: false
+2026-09-19T04:35:43.4297622Z   include-hidden-files: false
+2026-09-19T04:35:43.4297793Z   archive: true
+2026-09-19T04:35:43.4298631Z ##[endgroup]
+2026-09-19T04:35:43.5581716Z ##[warning]No files were found with the provided path: artifacts/package/*.zip. No artifacts will be uploaded.
+2026-09-19T04:35:43.5821124Z Post job cleanup.
+2026-09-19T04:35:43.7159427Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-09-19T04:35:43.7329417Z git version 2.55.0.windows.5
+2026-09-19T04:35:43.7374078Z Temporarily overriding HOME='D:\a\_temp\d5529907-8f86-491b-a4d5-285538bc85e4' before making global git config changes
+2026-09-19T04:35:43.7374642Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-19T04:35:43.7382398Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wpf-launcher5\wpf-launcher5
+2026-09-19T04:35:43.7566012Z Removing SSH command configuration
+2026-09-19T04:35:43.7574271Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-09-19T04:35:43.7789995Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-09-19T04:35:44.1397089Z Removing HTTP extra header
+2026-09-19T04:35:44.1405851Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-19T04:35:44.1635447Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-09-19T04:35:44.5334305Z Removing includeIf entries pointing to credentials config files
+2026-09-19T04:35:44.5343239Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-19T04:35:44.5528580Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-09-19T04:35:44.9427070Z Cleaning up orphan processes
