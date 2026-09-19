@@ -1,14 +1,18 @@
+<!-- MainWindow.xaml
+     カテゴリーと所属ボタンを二階層で表示するランチャーのメイン画面です。
+     操作はすべて ViewModel へバインドし、Tab・矢印・Enter/Space で完結できます。 -->
 <Window x:Class="Launcher.App.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="業務ランチャー"
-        Width="960"
-        Height="600"
-        MinWidth="720"
-        MinHeight="420"
+        xmlns:automation="clr-namespace:System.Windows.Automation;assembly=PresentationCore"
+        xmlns:local="clr-namespace:Launcher.App"
+        Title="{Binding Title}"
+        Width="960" Height="600" MinWidth="720" MinHeight="420"
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource WindowBackgroundBrush}">
-    <!-- ステップ1では起動確認用のサンプルを表示し、設定連携と MVVM 化は後続ステップで行います。 -->
+    <Window.Resources>
+        <local:LauncherImageConverter x:Key="LauncherImageConverter" />
+    </Window.Resources>
     <Grid Margin="24">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -17,8 +21,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">
-            <TextBlock FontSize="28" FontWeight="SemiBold" Foreground="#172033" Text="業務ランチャー" />
-            <TextBlock Margin="0,6,0,0" FontSize="14" Foreground="#667085" Text="利用するカテゴリーを選択してください" />
+            <TextBlock FontSize="28" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" Text="{Binding Title}" />
+            <TextBlock Margin="0,6,0,0" FontSize="14" Foreground="{StaticResource SecondaryTextBrush}" Text="カテゴリーを選び、起動するプログラムを選択してください" />
         </StackPanel>
 
         <Grid Grid.Row="2">
@@ -29,31 +33,71 @@
             </Grid.ColumnDefinitions>
 
             <Border Grid.Column="0" Padding="16" Background="{StaticResource PanelBackgroundBrush}" CornerRadius="12">
-                <StackPanel>
-                    <TextBlock Margin="8,0,8,12" FontSize="13" FontWeight="SemiBold" Foreground="#667085" Text="カテゴリー" />
-                    <Button Height="48" Padding="14,0" HorizontalContentAlignment="Left" Background="{StaticResource AccentBrush}" Foreground="White" BorderThickness="0" Content="日常業務" />
-                    <Button Height="48" Margin="0,8,0,0" Padding="14,0" HorizontalContentAlignment="Left" Background="Transparent" BorderBrush="#D0D5DD" Content="管理ツール" />
-                </StackPanel>
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Top" Margin="8,0,8,12" FontSize="13" FontWeight="SemiBold"
+                               Foreground="{StaticResource SecondaryTextBrush}" Text="カテゴリー" />
+                    <ListBox ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}"
+                             ItemContainerStyle="{StaticResource CategoryItemStyle}"
+                             BorderThickness="0" Background="Transparent"
+                             automation:AutomationProperties.AutomationId="CategoryList">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" TextWrapping="Wrap" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
             </Border>
 
             <Border Grid.Column="2" Padding="24" Background="{StaticResource PanelBackgroundBrush}" CornerRadius="12">
-                <StackPanel>
-                    <TextBlock FontSize="20" FontWeight="SemiBold" Foreground="#172033" Text="日常業務" />
-                    <WrapPanel Margin="0,20,0,0">
-                        <Button Width="176" Height="112" Margin="0,0,16,16" Background="#F8FAFC" BorderBrush="#D0D5DD">
-                            <StackPanel HorizontalAlignment="Center">
-                                <TextBlock HorizontalAlignment="Center" FontSize="30" Text="▣" />
-                                <TextBlock Margin="0,8,0,0" FontSize="15" FontWeight="SemiBold" Text="電卓" />
-                            </StackPanel>
-                        </Button>
-                        <Button Width="176" Height="112" Margin="0,0,16,16" Background="#F8FAFC" BorderBrush="#D0D5DD">
-                            <StackPanel HorizontalAlignment="Center">
-                                <TextBlock HorizontalAlignment="Center" FontSize="30" Text="▤" />
-                                <TextBlock Margin="0,8,0,0" FontSize="15" FontWeight="SemiBold" Text="メモ帳" />
-                            </StackPanel>
-                        </Button>
-                    </WrapPanel>
-                </StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="20" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}"
+                               Text="{Binding SelectedCategory.Name, TargetNullValue=カテゴリー未選択}" />
+                    <ScrollViewer Grid.Row="1" Margin="0,20,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                        <ItemsControl ItemsSource="{Binding VisibleButtons}" automation:AutomationProperties.AutomationId="LauncherButtonList">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource LauncherButtonStyle}"
+                                            Command="{Binding DataContext.LaunchCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                            CommandParameter="{Binding}"
+                                            IsEnabled="{Binding IsEnabled}"
+                                            automation:AutomationProperties.AutomationId="{Binding Id}"
+                                            automation:AutomationProperties.Name="{Binding Name}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="64" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Border Width="56" Height="56" CornerRadius="8" Background="#E8EEFF">
+                                                <Image Source="{Binding ImagePath, Converter={StaticResource LauncherImageConverter}}"
+                                                       Width="48" Height="48" Stretch="Uniform" />
+                                            </Border>
+                                            <TextBlock Grid.Row="1" Margin="0,8,0,0" TextAlignment="Center" TextWrapping="Wrap"
+                                                       FontSize="15" FontWeight="SemiBold" Text="{Binding Name}" />
+                                            <TextBlock Grid.Row="2" Margin="0,4,0,0" TextAlignment="Center" FontSize="11"
+                                                       Foreground="{StaticResource SecondaryTextBrush}" Text="起動不可">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                        <Style.Triggers><DataTrigger Binding="{Binding IsEnabled}" Value="True"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger></Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
             </Border>
         </Grid>
     </Grid>

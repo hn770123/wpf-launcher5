@@ -23,4 +23,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Launcher.Core\Launcher.Core.vbproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <!-- 既定設定を実行ファイルの隣へ配置し、引数なしでも起動できるようにします。 -->
+    <None Include="..\..\samples\launcher.config.xml" Link="launcher.config.xml" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>
