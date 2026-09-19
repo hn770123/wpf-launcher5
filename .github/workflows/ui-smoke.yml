@@ -40,10 +40,9 @@ jobs:
           $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
           $msbuild = & $vswhere -latest -products * `
             -requires Microsoft.Component.MSBuild `
-            -requires Microsoft.Net.Component.4.6.2.TargetingPack `
             -find 'MSBuild\**\Bin\MSBuild.exe' | Select-Object -First 1
           if (-not $msbuild) {
-            throw "必要な MSBuild または .NET Framework 4.6.2 Targeting Pack が見つかりません。"
+            throw "必要な MSBuild が見つかりません。"
           }
 
           & $msbuild Launcher.sln /restore /m `
@@ -59,7 +58,7 @@ jobs:
           Start-Transcript -Path $logPath -Force
           $process = $null
           try {
-            $executable = Join-Path $PWD 'src\Launcher.App\bin\x64\Release\net462\Launcher.App.exe'
+            $executable = Join-Path $PWD 'src\Launcher.App\bin\x64\Release\Launcher.App.exe'
             $configuration = Join-Path $PWD 'samples\ui-smoke.config.xml'
             $process = Start-Process -FilePath $executable `
               -ArgumentList @('--config', $configuration) -PassThru
