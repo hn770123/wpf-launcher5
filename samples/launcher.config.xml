@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launcher title="業務ランチャー" version="1">
+  <categories>
+    <category id="daily" name="日常業務" order="10">
+      <button id="calculator"
+              name="電卓"
+              order="10"
+              executable="%WINDIR%\System32\calc.exe"
+              arguments=""
+              workingDirectory="%WINDIR%\System32"
+              image="images\calculator.png" />
+    </category>
+  </categories>
+</launcher>

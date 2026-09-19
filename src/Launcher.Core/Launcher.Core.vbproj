@@ -16,4 +16,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 配布先でスキーマを差し替えられないよう、検証用 XSD をアセンブリへ埋め込みます。 -->
+    <EmbeddedResource Include="..\..\schemas\launcher-config.xsd" Link="Schemas\launcher-config.xsd" />
+  </ItemGroup>
 </Project>
