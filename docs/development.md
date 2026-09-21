@@ -142,3 +142,64 @@ permissions:
 - Action の SHA は Dependabot 等で更新しても、対応するタグ、Node.js runtime、最低 runner バージョンをレビューする。
 - `windows-2022` の廃止告知が出た場合は、移行先で Visual Studio の MSBuild と 4.6.1 参照アセンブリパッケージによる build/test が成功することを同じ PR で証明する。
 - .NET 10 の feature band を固定する必要が生じた場合は `global.json` を追加し、`setup-dotnet` の指定と同期させる。
+
+## 7. Actions と Codex のフィードバック経路
+
+### 7.1 保存済みログから判明した問題
+
+`logs/ci.yml-logs.txt` と `logs/ui-smaoke.yml-log.txt` は、現在の HEAD より前の SDK 形式プロジェクトをビルドした run のログである。両方に共通して、次の独立したエラーが記録されている。
+
+1. WPF のマークアップコンパイルが `mscorlib` を解決できず `MC1000` で停止している。
+2. 当時の `ProgramLauncherTests.vb` に VB の構文エラー (`BC30035` / `BC30198`) があり、テスト実行前のコンパイルで停止している。
+3. ビルドが失敗したため、テスト、ZIP 作成、UI 起動、PNG 撮影まで到達していない。従って、画面の問題を PNG から判断できる段階ではない。
+
+その後のコミットで全プロジェクトは .NET Framework 4.6.1 の従来形式に移行し、該当テストソースも修正されている。したがって、保存済みログだけで現在の失敗を断定せず、**現在の commit SHA で新しい run を実行する必要がある**。
+
+根本的な運用上の問題は、artifact のアップロードだけでは Codex へ自動的に結果が返らない点にある。Codex の実行環境に GitHub の認証とリポジトリ remote がなければ、run の起動、待機、artifact の取得はできない。また、従来は workflow に `workflow_dispatch` がなかったため、文書に記載していた `gh workflow run` 自体が成立しなかった。さらに成果物に commit SHA が入っておらず、手動配置されたログがどのソースに対応するかを機械判定できなかった。
+
+### 7.2 改善後の実行手順
+
+`CI` と `UI smoke` は `workflow_dispatch` に対応する。GitHub CLI にリポジトリの Actions 読み取り・実行権限がある環境では、次の閉ループを使用する。
+
+```powershell
+$branch = git branch --show-current
+$commit = git rev-parse HEAD
+
+gh workflow run ci.yml --ref $branch
+$ciRuns = gh run list --workflow ci.yml --branch $branch `
+  --event workflow_dispatch --limit 10 --json databaseId,headSha | ConvertFrom-Json
+$ciRun = $ciRuns | Where-Object headSha -EQ $commit |
+  Select-Object -First 1 -ExpandProperty databaseId
+gh run watch $ciRun --exit-status
+gh run download $ciRun --dir "artifacts/$ciRun"
+pwsh ./tools/verify-artifacts.ps1 -Path "artifacts/$ciRun" -ExpectedCommit $commit -Kind ci
+
+gh workflow run ui-smoke.yml --ref $branch
+$uiRuns = gh run list --workflow ui-smoke.yml --branch $branch `
+  --event workflow_dispatch --limit 10 --json databaseId,headSha | ConvertFrom-Json
+$uiRun = $uiRuns | Where-Object headSha -EQ $commit |
+  Select-Object -First 1 -ExpandProperty databaseId
+gh run watch $uiRun --exit-status
+gh run download $uiRun --dir "artifacts/$uiRun"
+pwsh ./tools/verify-artifacts.ps1 -Path "artifacts/$uiRun" -ExpectedCommit $commit -Kind ui
+```
+
+`gh workflow run` の直後は run が一覧に現れるまで時間差があり得るため、実運用では `gh run list` を有限回ポーリングする。ブランチ名だけで最新 run を選ばず、workflow、event、commit SHA をすべて照合する。各 workflow は job summary と `run-manifest.json` に workflow 名、run ID、再実行番号、commit SHA、run URL を記録する。
+
+ビルド失敗時は binlog だけが生成され、TRX や ZIP が存在しない場合がある。`verify-artifacts.ps1` はこの状態を「成果物の破損」と誤判定せず、存在する診断物を検証する。UI workflow は PNG と UI ログを必須とするため、ビルドまたは起動で止まった run は検証に失敗し、未撮影であることが明確になる。
+
+### 7.3 推奨する修正の順序
+
+1. 現在の commit で `CI` を再実行し、従来形式への移行で `MC1000` と VB 構文エラーが解消したか確認する。
+2. CI が成功してから `UI smoke` を実行する。失敗時は最初に binlog と `ui-smoke.log` を読み、PNG が生成されている場合だけ表示内容を確認する。
+3. 修正ごとに commit を作成して push し、同じ commit SHA の manifest を持つ成果物だけをフィードバックに使う。
+4. Codex 環境へ GitHub 認証を渡せない場合は、利用者が上記コマンドで取得した artifact 一式をリポジトリ外の一時フォルダーに配置し、commit SHA と run URL を明示して解析を依頼する。ログファイルだけをソース管理へ追加する運用は、陳腐化と機密情報混入を避けるため行わない。
+
+### 7.4 参照した公式仕様
+
+以下は **2026-09-21 (UTC)** に再確認した。
+
+- [ワークフローの手動実行 (`workflow_dispatch`)](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow)
+- [workflow artifact のダウンロード](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/download-workflow-artifacts)
+- [job summary (`GITHUB_STEP_SUMMARY`)](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#adding-a-job-summary)
+- [`gh run download`](https://cli.github.com/manual/gh_run_download)

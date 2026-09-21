@@ -3,6 +3,8 @@
 name: CI
 
 on:
+  # Codex から gh workflow run で明示的に再検証できる入口を用意します。
+  workflow_dispatch:
   pull_request:
   push:
     branches:
@@ -103,6 +105,29 @@ jobs:
           Compress-Archive -Path "$output\*" `
             -DestinationPath 'artifacts\package\Launcher.App-win-x64.zip' -Force
 
+      # 保存ログがどのコミットの結果かを、ダウンロード後にも機械的に照合できるようにします。
+      - name: 実行情報と確認手順を記録
+        if: ${{ always() }}
+        run: |
+          $manifest = [ordered]@{
+            schemaVersion = 1
+            workflow = $env:GITHUB_WORKFLOW
+            runId = $env:GITHUB_RUN_ID
+            runAttempt = $env:GITHUB_RUN_ATTEMPT
+            repository = $env:GITHUB_REPOSITORY
+            commit = $env:GITHUB_SHA
+            ref = $env:GITHUB_REF
+            runUrl = "${env:GITHUB_SERVER_URL}/${env:GITHUB_REPOSITORY}/actions/runs/${env:GITHUB_RUN_ID}"
+          }
+          $manifest | ConvertTo-Json | Set-Content artifacts/logs/run-manifest.json -Encoding utf8
+
+          @(
+            '## Codex フィードバック用情報'
+            "- commit: ``$env:GITHUB_SHA``"
+            "- run: [#$env:GITHUB_RUN_ID]($($manifest.runUrl)) (attempt $env:GITHUB_RUN_ATTEMPT)"
+            '- 取得後の検証: ``pwsh ./tools/verify-artifacts.ps1 -Path <展開先> -ExpectedCommit <commit> -Kind ci``'
+          ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY -Encoding utf8
+
       # always() により、ビルドやテストが失敗しても生成済みの診断物を回収します。
       - name: テスト結果とバイナリログを保存
         if: ${{ always() }}
@@ -111,6 +136,7 @@ jobs:
           name: ci-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
             artifacts/logs/*.binlog
+            artifacts/logs/run-manifest.json
             artifacts/test-results/**/*.trx
           if-no-files-found: warn
           retention-days: 14

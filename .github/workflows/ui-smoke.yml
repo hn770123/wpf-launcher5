@@ -3,6 +3,8 @@
 name: UI smoke
 
 on:
+  # Codex から gh workflow run で画面検証だけを再実行できるようにします。
+  workflow_dispatch:
   pull_request:
   push:
     branches:
@@ -87,6 +89,29 @@ jobs:
             '正常起動ではアプリログは生成されませんでした。' |
               Set-Content -Path "$destination\README.txt" -Encoding utf8
           }
+
+      # PNG とログが、確認対象のコミットから生成されたことを記録します。
+      - name: 実行情報と確認手順を記録
+        if: ${{ always() }}
+        run: |
+          $manifest = [ordered]@{
+            schemaVersion = 1
+            workflow = $env:GITHUB_WORKFLOW
+            runId = $env:GITHUB_RUN_ID
+            runAttempt = $env:GITHUB_RUN_ATTEMPT
+            repository = $env:GITHUB_REPOSITORY
+            commit = $env:GITHUB_SHA
+            ref = $env:GITHUB_REF
+            runUrl = "${env:GITHUB_SERVER_URL}/${env:GITHUB_REPOSITORY}/actions/runs/${env:GITHUB_RUN_ID}"
+          }
+          $manifest | ConvertTo-Json | Set-Content artifacts/ui-smoke/run-manifest.json -Encoding utf8
+
+          @(
+            '## Codex フィードバック用情報'
+            "- commit: ``$env:GITHUB_SHA``"
+            "- run: [#$env:GITHUB_RUN_ID]($($manifest.runUrl)) (attempt $env:GITHUB_RUN_ATTEMPT)"
+            '- 取得後の検証: ``pwsh ./tools/verify-artifacts.ps1 -Path <展開先> -ExpectedCommit <commit> -Kind ui``'
+          ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY -Encoding utf8
 
       - name: UI スモーク診断物を保存
         if: ${{ always() }}
