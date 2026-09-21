@@ -140,7 +140,8 @@ Public Class LauncherViewModelTests
         ''' </summary>
         Public Sub Launch(button As ButtonDefinition) Implements IProgramLauncher.Launch
             LaunchCount += 1
-            If OnLaunch IsNot Nothing Then OnLaunch()
+            ' Action 型のプロパティは、VB がプロパティ参照文と誤解しないよう明示的に呼び出します。
+            If OnLaunch IsNot Nothing Then OnLaunch.Invoke()
             If ExceptionToThrow IsNot Nothing Then Throw ExceptionToThrow
         End Sub
     End Class
