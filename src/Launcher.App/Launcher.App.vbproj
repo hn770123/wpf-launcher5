@@ -16,6 +16,8 @@
     <OptionStrict>On</OptionStrict>
     <OptionInfer>On</OptionInfer>
     <LangVersion>15.5</LangVersion>
+    <!-- WPF の一時コンパイルプロジェクトにも NuGet の参照アセンブリ設定を引き継ぎます。 -->
+    <IncludePackageReferencesDuringMarkupCompilation>true</IncludePackageReferencesDuringMarkupCompilation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
