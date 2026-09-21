@@ -47,8 +47,24 @@ jobs:
             throw "必要な MSBuild が見つかりません。"
           }
 
-          & $msbuild Launcher.sln /restore /m `
+          # 先に NuGet パッケージを復元し、WPF の一時プロジェクトでも使用できる状態にします。
+          & $msbuild Launcher.sln /t:Restore /m `
+            /p:Configuration=Release /p:Platform=x64
+          if ($LASTEXITCODE -ne 0) {
+            throw "UI スモークテスト用のパッケージ復元に失敗しました (exit code: $LASTEXITCODE)。"
+          }
+
+          # MarkupCompilePass1 が生成する一時プロジェクトは PackageReference を継承しないため、
+          # 復元済みの 4.6.1 参照アセンブリのルートをグローバルプロパティとして明示します。
+          $frameworkRoot = Join-Path $env:USERPROFILE `
+            '.nuget\packages\microsoft.netframework.referenceassemblies.net461\1.0.3\build\.NETFramework'
+          if (-not (Test-Path -LiteralPath "$frameworkRoot\v4.6.1")) {
+            throw ".NET Framework 4.6.1 の参照アセンブリが見つかりません: $frameworkRoot"
+          }
+
+          & $msbuild Launcher.sln /m `
             /p:Configuration=Release /p:Platform=x64 `
+            "/p:TargetFrameworkRootPath=$frameworkRoot" `
             /bl:artifacts/logs/Launcher.UI.Release.x64.binlog
           if ($LASTEXITCODE -ne 0) {
             throw "UI スモークテスト用ビルドに失敗しました (exit code: $LASTEXITCODE)。"
