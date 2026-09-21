@@ -38,6 +38,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <!-- SDK 形式で自動設定されていた VB の標準名前空間を、従来形式でもコンパイラーへ渡します。 -->
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
     <!-- Targeting Pack がない保守端末でも、4.6.1 の参照アセンブリだけを復元してビルドできるようにします。 -->
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net461" Version="1.0.3" PrivateAssets="All" />
   </ItemGroup>
