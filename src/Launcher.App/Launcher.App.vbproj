@@ -2,6 +2,8 @@
 <!-- Launcher.App.vbproj
      .NET SDK に依存せず、.NET Framework 4.6.1 の MSBuild で WPF アプリを構築します。 -->
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- WPF の一時コンパイルプロジェクト (_wpftmp.vbproj) 実行時にも PackageReference (NuGet) のプロパティとターゲットを読み込ませます。 -->
+  <Import Project="$(MSBuildProjectDirectory)\obj\$(MSBuildProjectName).vbproj.nuget.g.props" Condition="Exists('$(MSBuildProjectDirectory)\obj\$(MSBuildProjectName).vbproj.nuget.g.props')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.props" Condition="Exists('$(MSBuildToolsPath)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -89,4 +91,5 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(MSBuildProjectDirectory)\obj\$(MSBuildProjectName).vbproj.nuget.g.targets" Condition="Exists('$(MSBuildProjectDirectory)\obj\$(MSBuildProjectName).vbproj.nuget.g.targets')" />
 </Project>
