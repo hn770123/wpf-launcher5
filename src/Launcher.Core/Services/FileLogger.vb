@@ -42,7 +42,7 @@ Namespace Services
         ''' テスト可能な指定フォルダーをログ保存先にします。
         ''' </summary>
         Public Sub New(logDirectory As String)
-            If String.IsNullOrWhiteSpace(logDirectory) Then Throw New ArgumentException("ログ保存先を指定してください。", NameOf(logDirectory))
+            If String.IsNullOrWhiteSpace(logDirectory) Then Throw New ArgumentException("ログ保存先を指定してください。", "logDirectory")
             _logDirectory = Path.GetFullPath(logDirectory)
         End Sub
 
@@ -50,7 +50,7 @@ Namespace Services
         ''' 操作名、例外型、メッセージ、スタック情報を一件追記します。
         ''' </summary>
         Public Sub [Error](operation As String, exception As Exception) Implements ILogger.Error
-            If exception Is Nothing Then Throw New ArgumentNullException(NameOf(exception))
+            If exception Is Nothing Then Throw New ArgumentNullException("exception")
             Directory.CreateDirectory(_logDirectory)
             Dim logPath As String = Path.Combine(_logDirectory, DateTime.UtcNow.ToString("yyyyMMdd", CultureInfo.InvariantCulture) & ".log")
             Dim entry As String = String.Format(CultureInfo.InvariantCulture,

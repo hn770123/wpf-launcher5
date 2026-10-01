@@ -62,7 +62,7 @@ Namespace Services
         ''' 指定されたプロセス開始境界を使用します。
         ''' </summary>
         Public Sub New(processStarter As IProcessStarter)
-            If processStarter Is Nothing Then Throw New ArgumentNullException(NameOf(processStarter))
+            If processStarter Is Nothing Then Throw New ArgumentNullException("processStarter")
             _processStarter = processStarter
         End Sub
 
@@ -70,13 +70,13 @@ Namespace Services
         ''' シェルを使わず、設定済みの引数と作業ディレクトリで一度だけ起動します。
         ''' </summary>
         Public Sub Launch(button As ButtonDefinition) Implements IProgramLauncher.Launch
-            If button Is Nothing Then Throw New ArgumentNullException(NameOf(button))
+            If button Is Nothing Then Throw New ArgumentNullException("button")
             If Not File.Exists(button.ExecutablePath) Then
-                Throw New ProgramLaunchException($"実行ファイルが見つかりません: {button.ExecutablePath}")
+                Throw New ProgramLaunchException(String.Format("実行ファイルが見つかりません: {0}", button.ExecutablePath))
             End If
 
             If button.WorkingDirectory.Length > 0 AndAlso Not Directory.Exists(button.WorkingDirectory) Then
-                Throw New ProgramLaunchException($"作業フォルダーが見つかりません: {button.WorkingDirectory}")
+                Throw New ProgramLaunchException(String.Format("作業フォルダーが見つかりません: {0}", button.WorkingDirectory))
             End If
 
             ' UseShellExecute=False に固定し、& や | を含む設定値がコマンドとして再解釈されることを防ぎます。
@@ -100,9 +100,9 @@ Namespace Services
             Catch ex As SecurityException
                 Throw New ProgramLaunchException("セキュリティ設定によりプログラムの起動が拒否されました。", ex)
             Catch ex As Win32Exception
-                Throw New ProgramLaunchException($"プログラムを起動できません: {ex.Message}", ex)
+                Throw New ProgramLaunchException(String.Format("プログラムを起動できません: {0}", ex.Message), ex)
             Catch ex As IOException
-                Throw New ProgramLaunchException($"プログラムの起動情報を読み取れません: {ex.Message}", ex)
+                Throw New ProgramLaunchException(String.Format("プログラムの起動情報を読み取れません: {0}", ex.Message), ex)
             End Try
         End Sub
     End Class

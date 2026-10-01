@@ -32,7 +32,7 @@ Namespace Services
         ''' 指定されたパス解決サービスを使用するローダーを作成します。
         ''' </summary>
         Public Sub New(pathResolver As ConfigurationPathResolver)
-            If pathResolver Is Nothing Then Throw New ArgumentNullException(NameOf(pathResolver))
+            If pathResolver Is Nothing Then Throw New ArgumentNullException("pathResolver")
             _pathResolver = pathResolver
         End Sub
 
@@ -48,7 +48,7 @@ Namespace Services
             Try
                 fullPath = Path.GetFullPath(configurationPath)
                 If Not File.Exists(fullPath) Then
-                    Throw New ConfigurationException($"設定ファイルが見つかりません: {fullPath}")
+                    Throw New ConfigurationException(String.Format(CultureInfo.CurrentCulture, "設定ファイルが見つかりません: {0}", fullPath))
                 End If
 
                 Dim document As XDocument = ReadValidatedDocument(fullPath)
@@ -57,20 +57,20 @@ Namespace Services
                 Throw
             Catch ex As XmlException
                 Throw New ConfigurationException(
-                    $"設定ファイル '{fullPath}' の {ex.LineNumber} 行 {ex.LinePosition} 列を確認してください: {ex.Message}", ex)
+                    String.Format(CultureInfo.CurrentCulture, "設定ファイル '{0}' の {1} 行 {2} 列を確認してください: {3}", fullPath, ex.LineNumber, ex.LinePosition, ex.Message), ex)
             Catch ex As XmlSchemaValidationException
                 Throw New ConfigurationException(
-                    $"設定ファイル '{fullPath}' の {ex.LineNumber} 行 {ex.LinePosition} 列がスキーマに適合しません: {ex.Message}", ex)
+                    String.Format(CultureInfo.CurrentCulture, "設定ファイル '{0}' の {1} 行 {2} 列がスキーマに適合しません: {3}", fullPath, ex.LineNumber, ex.LinePosition, ex.Message), ex)
             Catch ex As IOException
-                Throw New ConfigurationException($"設定ファイル '{fullPath}' を読み込めません: {ex.Message}", ex)
+                Throw New ConfigurationException(String.Format(CultureInfo.CurrentCulture, "設定ファイル '{0}' を読み込めません: {1}", fullPath, ex.Message), ex)
             Catch ex As UnauthorizedAccessException
-                Throw New ConfigurationException($"設定ファイル '{fullPath}' を読み込む権限がありません。", ex)
+                Throw New ConfigurationException(String.Format(CultureInfo.CurrentCulture, "設定ファイル '{0}' を読み込む権限がありません。", fullPath), ex)
             Catch ex As SecurityException
-                Throw New ConfigurationException($"設定ファイル '{fullPath}' へのアクセスがセキュリティ設定で拒否されました。", ex)
+                Throw New ConfigurationException(String.Format(CultureInfo.CurrentCulture, "設定ファイル '{0}' へのアクセスがセキュリティ設定で拒否されました。", fullPath), ex)
             Catch ex As ArgumentException
-                Throw New ConfigurationException($"設定ファイルまたは設定内のパスが不正です: {ex.Message}", ex)
+                Throw New ConfigurationException(String.Format(CultureInfo.CurrentCulture, "設定ファイルまたは設定内のパスが不正です: {0}", ex.Message), ex)
             Catch ex As NotSupportedException
-                Throw New ConfigurationException($"設定ファイルまたは設定内のパス形式を使用できません: {ex.Message}", ex)
+                Throw New ConfigurationException(String.Format(CultureInfo.CurrentCulture, "設定ファイルまたは設定内のパス形式を使用できません: {0}", ex.Message), ex)
             End Try
         End Function
 
@@ -160,9 +160,9 @@ Namespace Services
             Dim image As String = GetOptionalResolvedPath(element, "image", baseDirectory)
 
             Dim isEnabled As Boolean = File.Exists(executable)
-            If Not isEnabled Then warnings.Add($"ボタン '{id}' の実行ファイルが見つからないため無効化しました: {executable}")
+            If Not isEnabled Then warnings.Add(String.Format(CultureInfo.CurrentCulture, "ボタン '{0}' の実行ファイルが見つからないため無効化しました: {1}", id, executable))
             If image.Length > 0 AndAlso Not File.Exists(image) Then
-                warnings.Add($"ボタン '{id}' の画像が見つからないため既定画像を使用します: {image}")
+                warnings.Add(String.Format(CultureInfo.CurrentCulture, "ボタン '{0}' の画像が見つからないため既定画像を使用します: {1}", id, image))
                 image = String.Empty
             End If
 
@@ -205,7 +205,7 @@ Namespace Services
         ''' </summary>
         Private Shared Sub EnsureUniqueId(ids As HashSet(Of String), id As String, kind As String)
             If Not ids.Add(id) Then
-                Throw New ConfigurationException($"{kind} ID '{id}' が重複しています。ID は大文字小文字を区別せず一意にしてください。")
+                Throw New ConfigurationException(String.Format(CultureInfo.CurrentCulture, "{0} ID '{1}' が重複しています。ID は大文字小文字を区別せず一意にしてください。", kind, id))
             End If
         End Sub
     End Class
