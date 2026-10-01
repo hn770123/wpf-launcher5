@@ -38,7 +38,7 @@ Public Class LauncherViewModelTests
     <TestMethod>
     Public Sub SelectCategory_EmptyCategory_ShowsEmptyCollection()
         Dim populated As New CategoryDefinition("one", "一", 1, {CreateButton("first", enabled:=True)})
-        Dim emptyCategory As New CategoryDefinition("empty", "空", 2, Array.Empty(Of ButtonDefinition)())
+        Dim emptyCategory As New CategoryDefinition("empty", "空", 2, New ButtonDefinition() {})
         Dim viewModel As LauncherViewModel = CreateViewModel({populated, emptyCategory}, New RecordingLauncher())
 
         viewModel.SelectedCategory = emptyCategory

@@ -33,7 +33,7 @@ Namespace Launcher.App
         ''' 起動失敗が通知された時だけ、簡潔な案内を利用者へ表示します。
         ''' </summary>
         Private Sub OnViewModelPropertyChanged(sender As Object, e As PropertyChangedEventArgs)
-            If Not String.Equals(e.PropertyName, NameOf(LauncherViewModel.ErrorMessage), StringComparison.Ordinal) Then Return
+            If Not String.Equals(e.PropertyName, "ErrorMessage", StringComparison.Ordinal) Then Return
             Dim viewModel As LauncherViewModel = DirectCast(sender, LauncherViewModel)
             If String.IsNullOrWhiteSpace(viewModel.ErrorMessage) Then Return
             MessageBox.Show(Me, viewModel.ErrorMessage, "プログラムを起動できません",

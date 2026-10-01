@@ -20,6 +20,8 @@ Namespace ViewModels
         Private ReadOnly _programLauncher As IProgramLauncher
         Private ReadOnly _logger As ILogger
         Private ReadOnly _launchCommand As RelayCommand
+        Private ReadOnly _title As String
+        Private ReadOnly _categories As ReadOnlyCollection(Of CategoryDefinition)
         Private _selectedCategory As CategoryDefinition
         Private _visibleButtons As ReadOnlyCollection(Of ButtonDefinition)
         Private _isLaunching As Boolean
@@ -29,23 +31,32 @@ Namespace ViewModels
         ''' 検証済み設定と差し替え可能なサービスから画面状態を作成します。
         ''' </summary>
         Public Sub New(configuration As LauncherConfiguration, programLauncher As IProgramLauncher, logger As ILogger)
-            If configuration Is Nothing Then Throw New ArgumentNullException(NameOf(configuration))
-            If programLauncher Is Nothing Then Throw New ArgumentNullException(NameOf(programLauncher))
-            If logger Is Nothing Then Throw New ArgumentNullException(NameOf(logger))
+            If configuration Is Nothing Then Throw New ArgumentNullException("configuration")
+            If programLauncher Is Nothing Then Throw New ArgumentNullException("programLauncher")
+            If logger Is Nothing Then Throw New ArgumentNullException("logger")
 
-            Title = configuration.Title
-            Categories = configuration.Categories
+            _title = configuration.Title
+            _categories = configuration.Categories
             _programLauncher = programLauncher
             _logger = logger
             _launchCommand = New RelayCommand(AddressOf Launch, AddressOf CanLaunch)
             _visibleButtons = EmptyButtons()
-            SelectedCategory = Categories.FirstOrDefault()
+            SelectedCategory = _categories.FirstOrDefault()
         End Sub
 
         Public ReadOnly Property Title As String
-        Public ReadOnly Property Categories As ReadOnlyCollection(Of CategoryDefinition)
-        Public ReadOnly Property LaunchCommand As ICommand
+            Get
+                Return _title
+            End Get
+        End Property
 
+        Public ReadOnly Property Categories As ReadOnlyCollection(Of CategoryDefinition)
+            Get
+                Return _categories
+            End Get
+        End Property
+
+        Public ReadOnly Property LaunchCommand As ICommand
             Get
                 Return _launchCommand
             End Get
@@ -66,7 +77,7 @@ Namespace ViewModels
                 _selectedCategory = value
                 _visibleButtons = If(value Is Nothing, EmptyButtons(), value.Buttons)
                 OnPropertyChanged()
-                OnPropertyChanged(NameOf(VisibleButtons))
+                OnPropertyChanged("VisibleButtons")
             End Set
         End Property
 
@@ -115,10 +126,10 @@ Namespace ViewModels
                     _logger.Error("プログラム起動: " & button.Id, ex)
                 Catch logException As Exception
                     ' ログ障害でもランチャーを終了させず、保存できなかった事実だけを案内します。
-                    ErrorMessage = $"「{button.Name}」を起動できませんでした。ログも保存できませんでした: {logException.Message}"
+                    ErrorMessage = String.Format("「{0}」を起動できませんでした。ログも保存できませんでした: {1}", button.Name, logException.Message)
                     Return
                 End Try
-                ErrorMessage = $"「{button.Name}」を起動できませんでした。{ex.Message}{Environment.NewLine}ログ: {_logger.LogDirectory}"
+                ErrorMessage = String.Format("「{0}」を起動できませんでした。{1}{2}ログ: {3}", button.Name, ex.Message, Environment.NewLine, _logger.LogDirectory)
             Finally
                 SetLaunching(False)
             End Try
@@ -130,7 +141,7 @@ Namespace ViewModels
         Private Sub SetLaunching(value As Boolean)
             If _isLaunching = value Then Return
             _isLaunching = value
-            OnPropertyChanged(NameOf(IsLaunching))
+            OnPropertyChanged("IsLaunching")
             _launchCommand.RaiseCanExecuteChanged()
         End Sub
 
@@ -162,7 +173,7 @@ Namespace ViewModels
         ''' 実行処理と任意の活性判定を保持します。
         ''' </summary>
         Public Sub New(execute As Action(Of Object), canExecute As Predicate(Of Object))
-            If execute Is Nothing Then Throw New ArgumentNullException(NameOf(execute))
+            If execute Is Nothing Then Throw New ArgumentNullException("execute")
             _execute = execute
             _canExecute = canExecute
         End Sub
